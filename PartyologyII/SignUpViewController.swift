@@ -85,6 +85,7 @@ class SignUpViewController: UIViewController {
         signUp.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
     
+    //function for the sign up button operation
     @objc func signUpButton(){
         guard let email = emailAddress.text else {return}
         guard let password = password.text else {return}
@@ -102,6 +103,8 @@ class SignUpViewController: UIViewController {
                 print(error.debugDescription)
             }
         }
+        
+        performSegue(withIdentifier: "toHome", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

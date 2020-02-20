@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */; };
+		F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */; };
+		F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */; };
+		F3DFC65023FEC2F00042F4A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */; };
+		F3DFC65223FEC2F60042F4A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */; };
+		F3DFC65523FEC2F60042F4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */; };
+		F3DFC66023FEC2F70042F4A2 /* PartyologyIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC65F23FEC2F70042F4A2 /* PartyologyIITests.swift */; };
+		F3DFC66B23FEC2F70042F4A2 /* PartyologyIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3DFC65C23FEC2F70042F4A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3DFC63D23FEC2F00042F4A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3DFC64423FEC2F00042F4A2;
+			remoteInfo = PartyologyII;
+		};
+		F3DFC66723FEC2F70042F4A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3DFC63D23FEC2F00042F4A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3DFC64423FEC2F00042F4A2;
+			remoteInfo = PartyologyII;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyologyII.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F3DFC64F23FEC2F00042F4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F3DFC65423FEC2F60042F4A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F3DFC65623FEC2F60042F4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3DFC65B23FEC2F70042F4A2 /* PartyologyIITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyologyIITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DFC65F23FEC2F70042F4A2 /* PartyologyIITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyologyIITests.swift; sourceTree = "<group>"; };
+		F3DFC66123FEC2F70042F4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3DFC66623FEC2F70042F4A2 /* PartyologyIIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyologyIIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyologyIIUITests.swift; sourceTree = "<group>"; };
+		F3DFC66C23FEC2F70042F4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3DFC64223FEC2F00042F4A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC65823FEC2F70042F4A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC66323FEC2F70042F4A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3DFC63C23FEC2F00042F4A2 = {
+			isa = PBXGroup;
+			children = (
+				F3DFC64723FEC2F00042F4A2 /* PartyologyII */,
+				F3DFC65E23FEC2F70042F4A2 /* PartyologyIITests */,
+				F3DFC66923FEC2F70042F4A2 /* PartyologyIIUITests */,
+				F3DFC64623FEC2F00042F4A2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3DFC64623FEC2F00042F4A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */,
+				F3DFC65B23FEC2F70042F4A2 /* PartyologyIITests.xctest */,
+				F3DFC66623FEC2F70042F4A2 /* PartyologyIIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3DFC64723FEC2F00042F4A2 /* PartyologyII */ = {
+			isa = PBXGroup;
+			children = (
+				F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */,
+				F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */,
+				F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */,
+				F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */,
+				F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */,
+				F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */,
+				F3DFC65623FEC2F60042F4A2 /* Info.plist */,
+			);
+			path = PartyologyII;
+			sourceTree = "<group>";
+		};
+		F3DFC65E23FEC2F70042F4A2 /* PartyologyIITests */ = {
+			isa = PBXGroup;
+			children = (
+				F3DFC65F23FEC2F70042F4A2 /* PartyologyIITests.swift */,
+				F3DFC66123FEC2F70042F4A2 /* Info.plist */,
+			);
+			path = PartyologyIITests;
+			sourceTree = "<group>";
+		};
+		F3DFC66923FEC2F70042F4A2 /* PartyologyIIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */,
+				F3DFC66C23FEC2F70042F4A2 /* Info.plist */,
+			);
+			path = PartyologyIIUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3DFC64423FEC2F00042F4A2 /* PartyologyII */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3DFC66F23FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyII" */;
+			buildPhases = (
+				F3DFC64123FEC2F00042F4A2 /* Sources */,
+				F3DFC64223FEC2F00042F4A2 /* Frameworks */,
+				F3DFC64323FEC2F00042F4A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PartyologyII;
+			productName = PartyologyII;
+			productReference = F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3DFC65A23FEC2F70042F4A2 /* PartyologyIITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3DFC67223FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyIITests" */;
+			buildPhases = (
+				F3DFC65723FEC2F70042F4A2 /* Sources */,
+				F3DFC65823FEC2F70042F4A2 /* Frameworks */,
+				F3DFC65923FEC2F70042F4A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3DFC65D23FEC2F70042F4A2 /* PBXTargetDependency */,
+			);
+			name = PartyologyIITests;
+			productName = PartyologyIITests;
+			productReference = F3DFC65B23FEC2F70042F4A2 /* PartyologyIITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F3DFC66523FEC2F70042F4A2 /* PartyologyIIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3DFC67523FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyIIUITests" */;
+			buildPhases = (
+				F3DFC66223FEC2F70042F4A2 /* Sources */,
+				F3DFC66323FEC2F70042F4A2 /* Frameworks */,
+				F3DFC66423FEC2F70042F4A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3DFC66823FEC2F70042F4A2 /* PBXTargetDependency */,
+			);
+			name = PartyologyIIUITests;
+			productName = PartyologyIIUITests;
+			productReference = F3DFC66623FEC2F70042F4A2 /* PartyologyIIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3DFC63D23FEC2F00042F4A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Charles Berman (student LM)";
+				TargetAttributes = {
+					F3DFC64423FEC2F00042F4A2 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					F3DFC65A23FEC2F70042F4A2 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = F3DFC64423FEC2F00042F4A2;
+					};
+					F3DFC66523FEC2F70042F4A2 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = F3DFC64423FEC2F00042F4A2;
+					};
+				};
+			};
+			buildConfigurationList = F3DFC64023FEC2F00042F4A2 /* Build configuration list for PBXProject "PartyologyII" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3DFC63C23FEC2F00042F4A2;
+			productRefGroup = F3DFC64623FEC2F00042F4A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3DFC64423FEC2F00042F4A2 /* PartyologyII */,
+				F3DFC65A23FEC2F70042F4A2 /* PartyologyIITests */,
+				F3DFC66523FEC2F70042F4A2 /* PartyologyIIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3DFC64323FEC2F00042F4A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3DFC65523FEC2F60042F4A2 /* LaunchScreen.storyboard in Resources */,
+				F3DFC65223FEC2F60042F4A2 /* Assets.xcassets in Resources */,
+				F3DFC65023FEC2F00042F4A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC65923FEC2F70042F4A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC66423FEC2F70042F4A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3DFC64123FEC2F00042F4A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */,
+				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,
+				F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC65723FEC2F70042F4A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3DFC66023FEC2F70042F4A2 /* PartyologyIITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3DFC66223FEC2F70042F4A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3DFC66B23FEC2F70042F4A2 /* PartyologyIIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3DFC65D23FEC2F70042F4A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3DFC64423FEC2F00042F4A2 /* PartyologyII */;
+			targetProxy = F3DFC65C23FEC2F70042F4A2 /* PBXContainerItemProxy */;
+		};
+		F3DFC66823FEC2F70042F4A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3DFC64423FEC2F00042F4A2 /* PartyologyII */;
+			targetProxy = F3DFC66723FEC2F70042F4A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DFC64F23FEC2F00042F4A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DFC65423FEC2F60042F4A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F3DFC66D23FEC2F70042F4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F3DFC66E23FEC2F70042F4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3DFC67023FEC2F70042F4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyII/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyII;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3DFC67123FEC2F70042F4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyII/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyII;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F3DFC67323FEC2F70042F4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyIITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyIITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyologyII.app/PartyologyII";
+			};
+			name = Debug;
+		};
+		F3DFC67423FEC2F70042F4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyIITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyIITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyologyII.app/PartyologyII";
+			};
+			name = Release;
+		};
+		F3DFC67623FEC2F70042F4A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyIIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyIIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PartyologyII;
+			};
+			name = Debug;
+		};
+		F3DFC67723FEC2F70042F4A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RNLY567N6;
+				INFOPLIST_FILE = PartyologyIIUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NewWaveComputers.PartyologyIIUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PartyologyII;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3DFC64023FEC2F00042F4A2 /* Build configuration list for PBXProject "PartyologyII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DFC66D23FEC2F70042F4A2 /* Debug */,
+				F3DFC66E23FEC2F70042F4A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3DFC66F23FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DFC67023FEC2F70042F4A2 /* Debug */,
+				F3DFC67123FEC2F70042F4A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3DFC67223FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyIITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DFC67323FEC2F70042F4A2 /* Debug */,
+				F3DFC67423FEC2F70042F4A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3DFC67523FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyIIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3DFC67623FEC2F70042F4A2 /* Debug */,
+				F3DFC67723FEC2F70042F4A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3DFC63D23FEC2F00042F4A2 /* Project object */;
+}

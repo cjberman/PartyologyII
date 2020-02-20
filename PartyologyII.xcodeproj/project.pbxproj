@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,12 @@
 		F3DFC66023FEC2F70042F4A2 /* PartyologyIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC65F23FEC2F70042F4A2 /* PartyologyIITests.swift */; };
 		F3DFC66B23FEC2F70042F4A2 /* PartyologyIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */; };
 		F3DFC67923FEC3AD0042F4A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */; };
+		F3DFC67B23FECC390042F4A2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC67A23FECC390042F4A2 /* SignUpViewController.swift */; };
+		F3DFC67D23FECCCE0042F4A2 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC67C23FECCCE0042F4A2 /* HomeScreenViewController.swift */; };
+		F3DFC67F23FECD0F0042F4A2 /* HeadsUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC67E23FECD0F0042F4A2 /* HeadsUpViewController.swift */; };
+		F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */; };
+		F3DFC68323FECD2D0042F4A2 /* DeckChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */; };
+		F3DFC68523FECD3A0042F4A2 /* DeckEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyologyIIUITests.swift; sourceTree = "<group>"; };
 		F3DFC66C23FEC2F70042F4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F3DFC67A23FECC390042F4A2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F3DFC67C23FECCCE0042F4A2 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		F3DFC67E23FECD0F0042F4A2 /* HeadsUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsUpViewController.swift; sourceTree = "<group>"; };
+		F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibbageViewController.swift; sourceTree = "<group>"; };
+		F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseViewController.swift; sourceTree = "<group>"; };
+		F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +109,6 @@
 				0D37188677D558F0F245A7C8 /* Pods-PartyologyII.debug.xcconfig */,
 				BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -132,8 +143,14 @@
 				F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */,
 				F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */,
 				F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */,
+				F3DFC67C23FECCCE0042F4A2 /* HomeScreenViewController.swift */,
+				F3DFC67E23FECD0F0042F4A2 /* HeadsUpViewController.swift */,
+				F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */,
+				F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */,
+				F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */,
 				F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */,
 				F3DFC65623FEC2F60042F4A2 /* Info.plist */,
+				F3DFC67A23FECC390042F4A2 /* SignUpViewController.swift */,
 			);
 			path = PartyologyII;
 			sourceTree = "<group>";
@@ -332,9 +349,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3DFC68323FECD2D0042F4A2 /* DeckChooseViewController.swift in Sources */,
+				F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */,
 				F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */,
+				F3DFC67F23FECD0F0042F4A2 /* HeadsUpViewController.swift in Sources */,
 				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,
+				F3DFC68523FECD3A0042F4A2 /* DeckEditViewController.swift in Sources */,
+				F3DFC67B23FECC390042F4A2 /* SignUpViewController.swift in Sources */,
 				F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */,
+				F3DFC67D23FECCCE0042F4A2 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,10 +17,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="VLb-73-pVH" kind="show" id="jg3-aR-tRV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133" y="129"/>
+        </scene>
+        <!--Home Screen View Controller-->
+        <scene sceneID="ZtA-0V-7HU">
+            <objects>
+                <viewController id="VLb-73-pVH" customClass="HomeScreenViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ikb-6W-KhO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Xzc-ib-Fby"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fPT-HD-b8j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qaY-nM-BUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="129"/>
         </scene>
     </scenes>
 </document>

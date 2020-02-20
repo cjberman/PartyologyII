@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F480C66007C0D2E212724EE /* Pods_PartyologyII.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */; };
 		F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */; };
 		F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */; };
 		F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */; };
@@ -15,6 +16,7 @@
 		F3DFC65523FEC2F60042F4A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */; };
 		F3DFC66023FEC2F70042F4A2 /* PartyologyIITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC65F23FEC2F70042F4A2 /* PartyologyIITests.swift */; };
 		F3DFC66B23FEC2F70042F4A2 /* PartyologyIIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */; };
+		F3DFC67923FEC3AD0042F4A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D37188677D558F0F245A7C8 /* Pods-PartyologyII.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.debug.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.debug.xcconfig"; sourceTree = "<group>"; };
+		867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyologyII.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.release.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.release.xcconfig"; sourceTree = "<group>"; };
 		F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyologyII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		F3DFC66623FEC2F70042F4A2 /* PartyologyIIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyologyIIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DFC66A23FEC2F70042F4A2 /* PartyologyIIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyologyIIUITests.swift; sourceTree = "<group>"; };
 		F3DFC66C23FEC2F70042F4A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F480C66007C0D2E212724EE /* Pods_PartyologyII.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		175A749FB50F2AC6EA2B63F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2F4701EBB4ACBD34F96F806 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D37188677D558F0F245A7C8 /* Pods-PartyologyII.debug.xcconfig */,
+				BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F3DFC63C23FEC2F00042F4A2 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				F3DFC65E23FEC2F70042F4A2 /* PartyologyIITests */,
 				F3DFC66923FEC2F70042F4A2 /* PartyologyIIUITests */,
 				F3DFC64623FEC2F00042F4A2 /* Products */,
+				B2F4701EBB4ACBD34F96F806 /* Pods */,
+				175A749FB50F2AC6EA2B63F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +132,7 @@
 				F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */,
 				F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */,
 				F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */,
+				F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */,
 				F3DFC65623FEC2F60042F4A2 /* Info.plist */,
 			);
 			path = PartyologyII;
@@ -135,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3DFC66F23FEC2F70042F4A2 /* Build configuration list for PBXNativeTarget "PartyologyII" */;
 			buildPhases = (
+				057154015DA56E09733C8920 /* [CP] Check Pods Manifest.lock */,
 				F3DFC64123FEC2F00042F4A2 /* Sources */,
 				F3DFC64223FEC2F00042F4A2 /* Frameworks */,
 				F3DFC64323FEC2F00042F4A2 /* Resources */,
+				83CC0AF09B8C0E0776C9BC6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +264,7 @@
 			files = (
 				F3DFC65523FEC2F60042F4A2 /* LaunchScreen.storyboard in Resources */,
 				F3DFC65223FEC2F60042F4A2 /* Assets.xcassets in Resources */,
+				F3DFC67923FEC3AD0042F4A2 /* GoogleService-Info.plist in Resources */,
 				F3DFC65023FEC2F00042F4A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +284,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		057154015DA56E09733C8920 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyologyII-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83CC0AF09B8C0E0776C9BC6B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3DFC64123FEC2F00042F4A2 /* Sources */ = {
@@ -432,6 +505,7 @@
 		};
 		F3DFC67023FEC2F70042F4A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D37188677D558F0F245A7C8 /* Pods-PartyologyII.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +524,7 @@
 		};
 		F3DFC67123FEC2F70042F4A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

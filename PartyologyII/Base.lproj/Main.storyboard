@@ -22,20 +22,5 @@
             </objects>
             <point key="canvasLocation" x="133" y="129"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="6JB-zZ-7vq">
-            <objects>
-                <viewController id="iGL-EH-biD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QGS-wg-Dcz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="3A4-Yv-VBl"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dcc-UP-5Xi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="592" y="38"/>
-        </scene>
     </scenes>
 </document>

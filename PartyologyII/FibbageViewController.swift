@@ -10,13 +10,32 @@ import UIKit
 
 class FibbageViewController: UIViewController {
     
-    //text fields and buttons to sign in with
+    //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards
+    
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
     let placeholderTerm = "Krebs Cycle"
     var termsArray : [String] = []
     
+    var playerCount = 1
+    var playerCounter = UILabel()
     var falseTermField = UITextField()
     let enter = UIButton()
+    
+    func setUpPlayerCounter(){
+        //adding to view
+        view.addSubview(playerCounter)
+        
+        //setting up properties
+        playerCounter.text = "Player \(playerCount)"
+        playerCounter.textColor = UIColor.lightGray
+        playerCounter.font = UIFont(name: "Helvetica Neue", size: 30)
+        playerCounter.adjustsFontSizeToFitWidth = true
+        
+        //constraints
+        playerCounter.translatesAutoresizingMaskIntoConstraints = false
+        playerCounter.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        playerCounter.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+    }
     
     func setUpFalseTermField(){
         //adding to view
@@ -55,6 +74,9 @@ class FibbageViewController: UIViewController {
         if let newTerm = falseTermField.text{
             termsArray.append(newTerm)
             falseTermField.text = ""
+            playerCount+=1
+            setUpPlayerCounter()
+            print(termsArray)
         }
         else {return}
     }
@@ -64,6 +86,8 @@ class FibbageViewController: UIViewController {
         super.viewDidLoad()
         setUpEnter()
         setUpFalseTermField()
+        setUpPlayerCounter()
+        
 
         // Do any additional setup after loading the view.
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class FibbageViewController: UIViewController {
     
-    //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards
+    //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later]
     
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
     let placeholderTerm = "Krebs Cycle"
@@ -72,9 +72,14 @@ class FibbageViewController: UIViewController {
     
     @objc func enterButton(){
         if let newTerm = falseTermField.text{
+            //Add new false term to array, clear text field
             termsArray.append(newTerm)
             falseTermField.text = ""
+            
+            //fix this later to reflect actual player count
             playerCount+=1
+            
+            //Updates player counter
             setUpPlayerCounter()
             print(termsArray)
         }

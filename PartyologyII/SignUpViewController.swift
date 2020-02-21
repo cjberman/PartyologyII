@@ -98,6 +98,8 @@ class SignUpViewController: UIViewController {
                 changeRequest?.commitChanges(completion: { (error) in print("couldn't change name")
                 })
                 self.dismiss(animated: true, completion: nil)
+                
+                self.resignFirstResponder()
             }
             else{
                 print(error.debugDescription)

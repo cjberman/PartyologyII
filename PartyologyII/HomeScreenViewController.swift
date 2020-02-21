@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeScreenViewController: UIViewController {
+
     
     func assignbackground(){
         let background = UIImage(named: "arcadeScreen.jpg")
@@ -23,7 +25,14 @@ class HomeScreenViewController: UIViewController {
         self.view.sendSubviewToBack(imageView)
     }
     
+    func firstResponder(){
+        if (Auth.auth().currentUser != nil) {
+            self.becomeFirstResponder()
+        }
+    }
+    
     override func viewDidLoad() {
+        firstResponder()
         super.viewDidLoad()
         assignbackground()
        

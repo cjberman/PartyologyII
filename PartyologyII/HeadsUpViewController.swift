@@ -53,11 +53,20 @@ class HeadsUpViewController: UIViewController {
                 print("Rotate back")
                 print(myData.rotationRate.y)
                 self.view.backgroundColor = UIColor.red
+                
+                
+                
+                
             }
             else if myData.rotationRate.y < -1.75{
                 print("Rotate forward")
                 print(myData.rotationRate.y)
                 self.view.backgroundColor = UIColor.green
+                
+                
+                
+                
+                
             }
             
             

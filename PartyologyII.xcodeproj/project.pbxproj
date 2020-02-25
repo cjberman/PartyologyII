@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F480C66007C0D2E212724EE /* Pods_PartyologyII.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */; };
+		4DF454EA240551FC00146876 /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454E9240551FC00146876 /* FlashCard.swift */; };
+		4DF454EC2405526400146876 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454EB2405526400146876 /* Deck.swift */; };
 		F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */; };
 		F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */; };
 		F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		0D37188677D558F0F245A7C8 /* Pods-PartyologyII.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.debug.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.debug.xcconfig"; sourceTree = "<group>"; };
+		4DF454E9240551FC00146876 /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
+		4DF454EB2405526400146876 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyologyII.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.release.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.release.xcconfig"; sourceTree = "<group>"; };
 		F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyologyII.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,8 @@
 				F3DFC67E23FECD0F0042F4A2 /* HeadsUpViewController.swift */,
 				F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */,
 				F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */,
+				4DF454E9240551FC00146876 /* FlashCard.swift */,
+				4DF454EB2405526400146876 /* Deck.swift */,
 				F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */,
 				F3DFC67A23FECC390042F4A2 /* SignUpViewController.swift */,
 				F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */,
@@ -353,10 +359,12 @@
 				F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */,
 				F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */,
 				F3DFC67F23FECD0F0042F4A2 /* HeadsUpViewController.swift in Sources */,
+				4DF454EA240551FC00146876 /* FlashCard.swift in Sources */,
 				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,
 				F3DFC68523FECD3A0042F4A2 /* DeckEditViewController.swift in Sources */,
 				F3DFC67B23FECC390042F4A2 /* SignUpViewController.swift in Sources */,
 				F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */,
+				4DF454EC2405526400146876 /* Deck.swift in Sources */,
 				F3DFC67D23FECCCE0042F4A2 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

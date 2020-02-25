@@ -11,18 +11,50 @@ import CoreMotion
 
 class HeadsUpViewController: UIViewController {
     
+    //instantiate deck
+    let deck = Deck()
+    let definitionLabel = UILabel()
     var motionManager = CMMotionManager()
     
+    
+    //set up label
+    func setUpDefinitionLabel(){
+        //adding to view
+        view.addSubview(definitionLabel)
+        
+        //setting up properties
+        definitionLabel.setTitle("Placeholder", for: .normal)
+        definitionLabel.setTitleColor(UIColor.lightGray, for: .normal)
+        definitionLabel.backgroundColor = UIColor.blue
+        definitionLabel.addTarget(self, action: #selector(signUpButton), for: .touchUpInside)
+        definitionLabel.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        
+        //constraints
+        definitionLabel.translatesAutoresizingMaskIntoConstraints = false
+        definitionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        definitionLabel.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    
+        
+    //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         accelerometer(false)
         
+        setUpDefinitionLabel()
         
+        if let flashcard = deck?.getCard(){
+            if let definition = flashcard?.definition{
+                definitionLabel.text = definition
+            }
+        }
         
         view.backgroundColor = UIColor.white
-        // Do any additional setup after loading the view.
     }
+        
+        
+        
+        
     func accelerometer(_ animated: Bool){
         motionManager.accelerometerUpdateInterval = 0.2
         
@@ -80,4 +112,5 @@ class HeadsUpViewController: UIViewController {
         
     }
     
+}
 }

@@ -7,31 +7,29 @@
 //
 
 import UIKit
-import FirebaseStorage
-import FirebaseAuth
-
+import FirebaseDatabase
 class DeckEditViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
+    
+    var ref: DatabaseReference?
+    let dict = ["Term1": "Definition1", "Term2": "Definition2", "Term3": "Definiton3"]
+    var deckDisplay = UITextView()
+    
+    func setUpDeckDisplay(){
+        view.addSubview(deckDisplay)
+        
+        
     }
     
-    func addDeck(_ dictionary: Dictionary, _ completion: @escaping((_ url:URL?) -> ())){
-        // get the current user's userid
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-            
-         // get a reference to the storage object
-         let storage = Storage.storage().reference().child("user/\(uid)")
-            
-         // image's must be saved as data obejct's so convert and compress the image.
-         guard let image = imageView?.image, let imageData = UIImageJPEGRepresentation(image, 0.75) else {return}
-         
-         // store the image
-         storage.putData(imageData, metadata: StorageMetadata()) { (metaData, error) in
-            }
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ref = Database.database().reference()
+        addDeck(name: "Test Deck", dictionary: dict)
+    }
+    
+    func addDeck(name: String, dictionary: Dictionary<String, String>){
+        ref?.child("User").child("Decks").child(name).setValue(dictionary)
+    }
 
 
 }

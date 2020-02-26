@@ -36,10 +36,29 @@
                         <viewLayoutGuide key="safeArea" id="Xzc-ib-Fby"/>
                     </view>
                     <navigationItem key="navigationItem" id="fPT-HD-b8j"/>
+                    <connections>
+                        <segue destination="TOu-0B-Glu" kind="show" identifier="toDeckEdit" id="XcP-SE-aa9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaY-nM-BUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="987" y="129"/>
+        </scene>
+        <!--Deck Edit View Controller-->
+        <scene sceneID="YCC-Od-zew">
+            <objects>
+                <viewController id="TOu-0B-Glu" customClass="DeckEditViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6mh-on-8Az">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="tTp-Iu-PGX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xZ6-vo-eeM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEl-mb-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="448"/>
         </scene>
     </scenes>
 </document>

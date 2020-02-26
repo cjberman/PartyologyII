@@ -87,29 +87,29 @@ class SignUpViewController: UIViewController {
     
     //function for the sign up button operation
     @objc func signUpButton(){
-        guard let email = emailAddress.text else {return}
-        guard let password = password.text else {return}
-        guard let username = username.text else {return}
-        
-        Auth.auth().createUser(withEmail: email, password: password){ user, error in
-            if let _ = user {
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                changeRequest?.displayName = username
-                changeRequest?.commitChanges(completion: { (error) in print("couldn't change name")
-                })
-                self.dismiss(animated: true, completion: nil)
-                
-                self.resignFirstResponder()
-            }
-            else{
-                print(error.debugDescription)
-            }
-        }
+//        guard let email = emailAddress.text else {return}
+//        guard let password = password.text else {return}
+//        guard let username = username.text else {return}
+//
+//        Auth.auth().createUser(withEmail: email, password: password){ user, error in
+//            if let _ = user {
+//                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+//                changeRequest?.displayName = username
+//                changeRequest?.commitChanges(completion: { (error) in print("couldn't change name")
+//                })
+//                self.dismiss(animated: true, completion: nil)
+////                self.performSegue(withIdentifier: "toHome", sender: self)
+//            }
+//            else{
+//                print(error.debugDescription)
+//            }
+//        }
         
         performSegue(withIdentifier: "toHome", sender: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpEmailAddress()
         setUpUsername()
         setUpPassword()

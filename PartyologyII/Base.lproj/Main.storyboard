@@ -44,6 +44,21 @@
             </objects>
             <point key="canvasLocation" x="987" y="129"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="sIq-Ch-uYH">
+            <objects>
+                <viewController id="4Zc-gK-2Hu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RVg-qt-acw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZYM-xa-wPq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8VI-pr-7vF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2016" y="-217"/>
+        </scene>
         <!--Deck Edit View Controller-->
         <scene sceneID="YCC-Od-zew">
             <objects>
@@ -59,21 +74,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEl-mb-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2017" y="448"/>
-        </scene>
-        <!--Deck Choose View Controller-->
-        <scene sceneID="TAN-HV-C62">
-            <objects>
-                <viewController id="eub-w3-5s0" customClass="DeckChooseViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5q8-Ba-7uW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="keG-MJ-UrN"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BqA-zh-moR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2016" y="-201"/>
         </scene>
     </scenes>
 </document>

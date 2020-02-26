@@ -23,11 +23,10 @@ class HeadsUpViewController: UIViewController {
         view.addSubview(definitionLabel)
         
         //setting up properties
-        definitionLabel.setTitle("Placeholder", for: .normal)
-        definitionLabel.setTitleColor(UIColor.lightGray, for: .normal)
-        definitionLabel.backgroundColor = UIColor.blue
-        definitionLabel.addTarget(self, action: #selector(signUpButton), for: .touchUpInside)
-        definitionLabel.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        
+        definitionLabel.text = "Placeholder"
+        definitionLabel.textColor = UIColor.black
+        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         
         //constraints
         definitionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -36,18 +35,16 @@ class HeadsUpViewController: UIViewController {
     
         
     //viewDidLoad
-    override func viewDidLoad() {
+    func viewDidLoad() {
         super.viewDidLoad()
         
         accelerometer(false)
         
         setUpDefinitionLabel()
         
-        if let flashcard = deck?.getCard(){
-            if let definition = flashcard?.definition{
-                definitionLabel.text = definition
-            }
-        }
+        //May or may not have to optional bind this
+        definitionLabel.text = deck.getCard()?.definition
+
         
         view.backgroundColor = UIColor.white
     }

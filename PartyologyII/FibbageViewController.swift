@@ -9,7 +9,7 @@
 import UIKit
 
 class FibbageViewController: UIViewController {
-    
+    //buhhhh
     //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later]
     
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"

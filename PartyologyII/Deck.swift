@@ -10,19 +10,35 @@ import Foundation
 
 class Deck{
 
-    private var cards = [FlashCard]()
+    public var cards = [FlashCard]()
+    public var name = String()
+
+    init(c: [FlashCard], n: String) {
+        cards = c
+        name = n
+    }
     
     init(){
-        let cardData = ["Big Chungus" : "Refers to an image of the cartoon character Bugs Bunny, usually presented as a game for a PlayStation 4 console.", "Epic Fail" : "a spectacularly embarrassing or humorous mistake, humiliating situation, etc., that is subject to ridicule and given a greatly exaggerated importance. "]
-    
-        for (term, definition) in cardData {
-            cards.append(FlashCard(term, definition: definition))
-        }
-        
+        cards = [FlashCard]()
+        name = " "
     }
     
-    func getCard() -> FlashCard?{
+    func getRandomCard() -> FlashCard?{
         return (cards.isEmpty) ?  nil : cards[Int.random(in: 0..<cards.count)]
     }
+    
+    func getQuickDeck(num: Int) -> Deck{
+        let quickDeck = Deck()
+        let card = FlashCard()
+        
+        for _ in 0..<num{
+            card.term = "Numbers"
+            card.definition = String(Int.random(in: 0..<num))
+            quickDeck.cards.append(card)
+        }
+        
+        return quickDeck
+    }
+
     
 }

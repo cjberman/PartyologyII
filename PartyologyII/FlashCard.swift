@@ -12,9 +12,13 @@ class FlashCard{
     var term: String
     var definition: String
     
-    init(_ term: String = "default term", definition: String = "default definition"){
+    init(_ term: String = "default term", _ definition: String = "default definition"){
         self.term = term
         self.definition = definition
+    }
+    
+    public var description: String{
+        return "\(term): \(definition)"
     }
     
 }

@@ -43,7 +43,7 @@ class HeadsUpViewController: UIViewController {
         setUpDefinitionLabel()
         
         //May or may not have to optional bind this
-        definitionLabel.text = deck.getCard()?.definition
+//        definitionLabel.text = deck.getCard()?.definition
 
         
         view.backgroundColor = UIColor.white

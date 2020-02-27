@@ -11,8 +11,12 @@ import FirebaseDatabase
 class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
-    let dict = ["Term1": "Definition1", "Term2": "Definition2", "Term3": "Definiton3"]
+    var databaseHandle: DatabaseHandle?
+
+    //test dictionary
+    let deck = Deck(c: [FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", " ")], n: "Random Things")
     var deckDisplay = UITextView()
+    var decks = [Deck]()
     
     func setUpDeckDisplay(){
         view.addSubview(deckDisplay)
@@ -23,12 +27,32 @@ class DeckEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        for i in 0..<deck.cards.count{
+            print(deck.cards[i])
+        }
+        
         ref = Database.database().reference()
-        addDeck(name: "Test Deck", dictionary: dict)
+        addDeck(deck: deck)
     }
     
-    func addDeck(name: String, dictionary: Dictionary<String, String>){
-        ref?.child("User").child("Decks").child(name).setValue(dictionary)
+    func addDeck(deck: Deck){
+        var dictionary = Dictionary<String, String>()
+        
+        for i in deck.cards{
+            dictionary[i.term] = i.definition
+        }
+        
+        ref?.child("User").child("Decks").child(deck.name).setValue(dictionary)
+        decks.append(deck)
+    }
+    
+    func deckList() -> [Deck]{
+
+        ref?.child("Decks").observe(.childAdded, with: { (snapshot) in
+            
+        })
+        
+        return decks
     }
 
 

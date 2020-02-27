@@ -38,6 +38,7 @@
                     <navigationItem key="navigationItem" id="fPT-HD-b8j"/>
                     <connections>
                         <segue destination="TOu-0B-Glu" kind="show" identifier="toDeckEdit" id="XcP-SE-aa9"/>
+                        <segue destination="9bz-JH-9RE" kind="show" identifier="toDeckChoose" id="tQC-AR-Wvx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaY-nM-BUE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -49,11 +50,12 @@
             <objects>
                 <viewController id="9bz-JH-9RE" customClass="DeckChooseViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jv3-ai-q1o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="l3x-d6-W0j"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JfP-2R-6FI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWl-Qj-7O8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

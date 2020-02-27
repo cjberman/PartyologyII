@@ -12,6 +12,7 @@ import FirebaseAuth
 class HomeScreenViewController: UIViewController {
 
     let deckEdit = UIButton()
+    let deckChoose = UIButton()
     let background = UIImage(named: "arcadeScreen.jpg")
     
     func assignbackground(){
@@ -46,6 +47,25 @@ class HomeScreenViewController: UIViewController {
         self.performSegue(withIdentifier: "toDeckEdit", sender: self)
     }
     
+    func setUpDeckChoose(){
+           view.addSubview(deckChoose)
+           
+           deckChoose.setTitle("Choose Deck", for: .normal)
+           deckChoose.setTitleColor(UIColor.lightGray, for: .normal)
+           deckChoose.backgroundColor = UIColor.blue
+           deckChoose.addTarget(self, action: #selector(deckChooseButton), for: .touchUpInside)
+           deckChoose.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+           
+           //constraints
+           deckChoose.translatesAutoresizingMaskIntoConstraints = false
+           deckChoose.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+           deckChoose.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+       }
+    
+    @objc func deckChooseButton(){
+           self.performSegue(withIdentifier: "toDeckChoose", sender: self)
+       }
+    
     func firstResponder(){
         if (Auth.auth().currentUser != nil) {
             self.becomeFirstResponder()
@@ -58,6 +78,7 @@ class HomeScreenViewController: UIViewController {
         assignbackground()
         firstResponder()
         setUpDeckEdit()
+        setUpDeckChoose()
     }
 
 

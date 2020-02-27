@@ -27,6 +27,12 @@ class Deck{
         return (cards.isEmpty) ?  nil : cards[Int.random(in: 0..<cards.count)]
     }
     
+//    func loopThroughDeck() -> String{
+//        for i in cards{
+//            
+//        }
+//    }
+    
     func getQuickDeck(num: Int) -> Deck{
         let quickDeck = Deck()
         let card = FlashCard()

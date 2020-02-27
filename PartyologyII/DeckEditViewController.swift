@@ -33,6 +33,9 @@ class DeckEditViewController: UIViewController {
         
         ref = Database.database().reference()
         addDeck(deck: deck)
+        let snapshot = ref?.child("Decks").child(deck.name).child(<#T##pathString: String##String#>)
+        print(snapshot?.key!)
+        
     }
     
     func addDeck(deck: Deck){
@@ -49,7 +52,8 @@ class DeckEditViewController: UIViewController {
     func deckList() -> [Deck]{
 
         ref?.child("Decks").observe(.childAdded, with: { (snapshot) in
-            
+            let deck = snapshot.value
+            print("\(deck)")
         })
         
         return decks

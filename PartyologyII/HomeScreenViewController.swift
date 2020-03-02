@@ -32,15 +32,15 @@ class HomeScreenViewController: UIViewController {
         
         //setting up properties
         deckEdit.setTitle("Edit Deck", for: .normal)
-        deckEdit.setTitleColor(UIColor.lightGray, for: .normal)
-        deckEdit.backgroundColor = UIColor.blue
+        deckEdit.setTitleColor(UIColor.red, for: .normal)
+        deckEdit.backgroundColor = UIColor.black
         deckEdit.addTarget(self, action: #selector(deckEditButton), for: .touchUpInside)
-        deckEdit.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        deckEdit.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         deckEdit.translatesAutoresizingMaskIntoConstraints = false
-        deckEdit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        deckEdit.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        deckEdit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60).isActive = true
+        deckEdit.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -400).isActive = true
     }
     
     @objc func deckEditButton(){
@@ -51,15 +51,15 @@ class HomeScreenViewController: UIViewController {
            view.addSubview(deckChoose)
            
            deckChoose.setTitle("Choose Deck", for: .normal)
-           deckChoose.setTitleColor(UIColor.lightGray, for: .normal)
-           deckChoose.backgroundColor = UIColor.blue
+        deckChoose.setTitleColor(UIColor.blue, for: .normal)
+           deckChoose.backgroundColor = UIColor.black
            deckChoose.addTarget(self, action: #selector(deckChooseButton), for: .touchUpInside)
-           deckChoose.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+           deckChoose.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
            
            //constraints
            deckChoose.translatesAutoresizingMaskIntoConstraints = false
-           deckChoose.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-           deckChoose.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+           deckChoose.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -60).isActive = true
+           deckChoose.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true
        }
     
     @objc func deckChooseButton(){

@@ -7,14 +7,49 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DeckChooseViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let enterButton = UIButton()
+    
+    func setUpEnter(){
+                view.addSubview(enterButton)
+               
+               enterButton.setTitle("Enter", for: .normal)
+                enterButton.setTitleColor(UIColor.red, for: .normal)
+               enterButton.backgroundColor = UIColor.black
+               enterButton.addTarget(self, action: #selector(fromEnterButton), for: .touchUpInside)
+               enterButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+               
+               //constraints
+               enterButton.translatesAutoresizingMaskIntoConstraints = false
+               enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+               enterButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+           }
+        
+        @objc func fromEnterButton(){
+               self.performSegue(withIdentifier: "toGameChoose", sender: self)
+           }
+        
+        
+    
+    
+    
+    
+    
+    func firstResponder(){
+           if (Auth.auth().currentUser != nil) {
+               self.becomeFirstResponder()
 
-        // Do any additional setup after loading the view.
-    }
+           }
+       }
+       
+       override func viewDidLoad() {
+            super.viewDidLoad()
+            firstResponder()
+            setUpEnter()
+       }
     
 
     /*

@@ -1,4 +1,6 @@
 PODS:
+  - Firebase (6.18.0):
+    - Firebase/Core (= 6.18.0)
   - Firebase/Auth (6.18.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.4.3)
@@ -91,6 +93,7 @@ PODS:
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
+  - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -137,6 +140,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: b94b39f2e746065b7ec9338f31e0feb2ed0a42a0
+PODFILE CHECKSUM: 78dbf6314bd02625378390964546bdcabf682f8a
 
 COCOAPODS: 1.8.4

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+
 class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
@@ -33,8 +34,8 @@ class DeckEditViewController: UIViewController {
         
         ref = Database.database().reference()
         addDeck(deck: deck)
-        let snapshot = ref?.child("Decks").child(deck.name).child(<#T##pathString: String##String#>)
-        print(snapshot?.key!)
+        //let snapshot = ref?.child("Decks").child(deck.name).child(<#T##pathString: String##String#>)
+        //print(snapshot?.key!)
         
     }
     

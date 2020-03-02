@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+//import FirebaseAuth
 
 class DeckChooseViewController: UIViewController {
 
@@ -39,10 +39,10 @@ class DeckChooseViewController: UIViewController {
     
     
     func firstResponder(){
-           if (Auth.auth().currentUser != nil) {
-               self.becomeFirstResponder()
-
-           }
+//           if (Auth.auth().currentUser != nil) {
+//               self.becomeFirstResponder()
+//
+//           }
        }
        
        override func viewDidLoad() {

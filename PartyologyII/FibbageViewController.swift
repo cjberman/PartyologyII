@@ -15,6 +15,7 @@ class FibbageViewController: UIViewController {
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
     let placeholderTerm = "Krebs Cycle"
     var termsArray : [String] = []
+
     
     var playerCount = 1
     var playerCounter = UILabel()
@@ -74,6 +75,8 @@ class FibbageViewController: UIViewController {
         if let newTerm = falseTermField.text{
             //Add new false term to array, clear text field
             termsArray.append(newTerm)
+            let vc = FibTableView(nibName: "FibTableView", bundle: nil)
+            vc.termArray = termsArray
             falseTermField.text = ""
             
             //fix this later to reflect actual player count

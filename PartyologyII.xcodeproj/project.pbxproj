@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F480C66007C0D2E212724EE /* Pods_PartyologyII.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */; };
 		4DF454EA240551FC00146876 /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454E9240551FC00146876 /* FlashCard.swift */; };
 		4DF454EC2405526400146876 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454EB2405526400146876 /* Deck.swift */; };
+		594E1BC4EF3472EA49BAD376 /* libPods-PartyologyII.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F32D7463359082A9EA308E46 /* libPods-PartyologyII.a */; };
 		690BD071240D3FB4003EF126 /* FibTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690BD070240D3FB4003EF126 /* FibTableView.swift */; };
 		F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */; };
 		F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */; };
@@ -51,8 +51,8 @@
 		4DF454E9240551FC00146876 /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
 		4DF454EB2405526400146876 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		690BD070240D3FB4003EF126 /* FibTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibTableView.swift; sourceTree = "<group>"; };
-		867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyologyII.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.release.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.release.xcconfig"; sourceTree = "<group>"; };
+		F32D7463359082A9EA308E46 /* libPods-PartyologyII.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PartyologyII.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyologyII.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F480C66007C0D2E212724EE /* Pods_PartyologyII.framework in Frameworks */,
+				594E1BC4EF3472EA49BAD376 /* libPods-PartyologyII.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +106,7 @@
 		175A749FB50F2AC6EA2B63F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				867199ACE011521CB94CA6BB /* Pods_PartyologyII.framework */,
+				F32D7463359082A9EA308E46 /* libPods-PartyologyII.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,7 +196,6 @@
 				F3DFC64123FEC2F00042F4A2 /* Sources */,
 				F3DFC64223FEC2F00042F4A2 /* Frameworks */,
 				F3DFC64323FEC2F00042F4A2 /* Resources */,
-				83CC0AF09B8C0E0776C9BC6B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,23 +334,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		83CC0AF09B8C0E0776C9BC6B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyologyII/Pods-PartyologyII-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

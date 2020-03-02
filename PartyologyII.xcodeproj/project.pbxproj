@@ -26,6 +26,7 @@
 		F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */; };
 		F3DFC68323FECD2D0042F4A2 /* DeckChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */; };
 		F3DFC68523FECD3A0042F4A2 /* DeckEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */; };
+		FD17CD9A240D405F0027B0DE /* GameChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD17CD99240D405F0027B0DE /* GameChooseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibbageViewController.swift; sourceTree = "<group>"; };
 		F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseViewController.swift; sourceTree = "<group>"; };
 		F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditViewController.swift; sourceTree = "<group>"; };
+		FD17CD99240D405F0027B0DE /* GameChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameChooseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				F3DFC67A23FECC390042F4A2 /* SignUpViewController.swift */,
 				F3DFC67823FEC3AD0042F4A2 /* GoogleService-Info.plist */,
 				F3DFC65623FEC2F60042F4A2 /* Info.plist */,
+				FD17CD99240D405F0027B0DE /* GameChooseViewController.swift */,
 			);
 			path = PartyologyII;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */,
 				F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */,
 				F3DFC67F23FECD0F0042F4A2 /* HeadsUpViewController.swift in Sources */,
+				FD17CD9A240D405F0027B0DE /* GameChooseViewController.swift in Sources */,
 				4DF454EA240551FC00146876 /* FlashCard.swift in Sources */,
 				690BD071240D3FB4003EF126 /* FibTableView.swift in Sources */,
 				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,

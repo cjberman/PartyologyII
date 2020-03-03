@@ -9,8 +9,8 @@ import UIKit
 import Foundation
 class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSource{
     
-    var termArray = ["buhh","uhhh","ummm"]
-    
+    var termArray = [String]()
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -51,6 +51,9 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     
 
     override func viewDidLoad() {
+        let vc = FibbageViewController(nibName: "FibbageViewController", bundle: nil)
+        //termArray = vc.termsArray
+        print(vc.termsArray)
         super.viewDidLoad()
         setupTableView()
     }

@@ -77,18 +77,29 @@ class FibbageViewController: UIViewController {
             termsArray.append(newTerm)
             let vc = FibTableView(nibName: "FibTableView", bundle: nil)
             vc.termArray = termsArray
+            print(vc.termArray)
             falseTermField.text = ""
             
             //fix this later to reflect actual player count
             playerCount+=1
-            
+            if playerCount>3{
+                termsArray.append(placeholderTerm)
+                performSegue(withIdentifier: "toHome", sender: self)
+                return
+            }
             //Updates player counter
             setUpPlayerCounter()
             print(termsArray)
         }
         else {return}
     }
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toHome" {
+            let controller = segue.destination as! FibTableView
+            controller.termArray = termsArray
+
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

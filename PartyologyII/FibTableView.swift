@@ -11,6 +11,61 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     var definition: String = ""
     var termArray = [String]()
     var definitionLabel = UILabel()
+    var playerCounter = UILabel()
+    var playerCount = 1
+    let enter = UIButton()
+    
+    func setUpPlayerCounter(){
+        //adding to view
+        view.addSubview(playerCounter)
+        
+        //setting up properties
+        playerCounter.text = "Player \(playerCount)"
+        playerCounter.textColor = UIColor.red
+        playerCounter.font = UIFont(name: "Helvetica Neue", size: 30)
+        playerCounter.adjustsFontSizeToFitWidth = true
+        
+        //constraints
+        playerCounter.translatesAutoresizingMaskIntoConstraints = false
+        playerCounter.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        playerCounter.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
+    }
+    
+    @objc func enterButton(){
+        
+        
+        guard let path = tableview.indexPathForSelectedRow else {return}
+        
+        print(path.row)
+        playerCount = playerCount+1
+        setUpPlayerCounter()
+        
+        //deselects selected row
+        
+        tableview.deselectRow(at: path, animated: false)
+        
+    
+    }
+            
+    
+    func setUpEnter(){
+        //adding to view
+        view.addSubview(enter)
+        
+        //setting up properties
+        enter.setTitle("  Enter  ", for: .normal)
+        enter.setTitleColor(UIColor.white, for: .normal)
+        enter.backgroundColor = UIColor.red
+        enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
+        enter.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        enter.layer.cornerRadius = 20
+        
+        //constraints
+        enter.translatesAutoresizingMaskIntoConstraints = false
+        enter.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        enter.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    }
+    
     
     func setUpDefinition(){
         //adding to view
@@ -54,6 +109,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         return tv
     }()
     
+    
     func setupTableView() {
         tableview.delegate = self
         tableview.dataSource = self
@@ -63,9 +119,9 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         
         NSLayoutConstraint.activate([
             tableview.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300),
-            tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
+            tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
         ])
     }
     
@@ -77,6 +133,8 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         super.viewDidLoad()
         setupTableView()
         setUpDefinition()
+        setUpPlayerCounter()
+        setUpEnter()
     }
 }
 

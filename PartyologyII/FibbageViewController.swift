@@ -23,6 +23,7 @@ class FibbageViewController: UIViewController {
     var falseTermField = UITextField()
     let enter = UIButton()
     
+    
     func setUpDefinition(){
         //adding to view
         view.addSubview(definitionLabel)
@@ -33,8 +34,9 @@ class FibbageViewController: UIViewController {
         definitionLabel.textColor = UIColor.white
         definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
         definitionLabel.adjustsFontSizeToFitWidth = true
-        
         definitionLabel.layer.cornerRadius = 30
+        
+        
         
         //constraints
         definitionLabel.preferredMaxLayoutWidth = view.frame.width-60
@@ -109,6 +111,7 @@ class FibbageViewController: UIViewController {
             playerCount+=1
             if playerCount>3{
                 termsArray.append(placeholderTerm)
+                termsArray.shuffle()
                 performSegue(withIdentifier: "toHome", sender: self)
                 return
             }

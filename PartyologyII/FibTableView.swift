@@ -8,6 +8,9 @@
 import UIKit
 import Foundation
 class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSource{
+
+//UI FUNCTIONS AND NON TABLE VARIABLES
+//The majority of the following declarations and setup functions are poached from the Fibbage class, if i can find a way to like do macros or not take up all this space with identical code i'll get rid of it but thats low priority
     var definition: String = ""
     var termArray = [String]()
     var definitionLabel = UILabel()
@@ -33,10 +36,11 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     
     @objc func enterButton(){
         
-        
+         //path row is how we'll keep track of player choices
         guard let path = tableview.indexPathForSelectedRow else {return}
-        
         print(path.row)
+        
+        //updates player count, will add limit later to end round
         playerCount = playerCount+1
         setUpPlayerCounter()
         
@@ -46,7 +50,6 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         
     
     }
-            
     
     func setUpEnter(){
         //adding to view
@@ -86,14 +89,19 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         definitionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
     }
 
+//TABLE VIEW FUNCTIONS
+
+    //cell height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
+    //number of cells in table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return termArray.count
     }
     
+    //sends cell data to fill in table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! TermCell
         cell.backgroundColor = UIColor.white
@@ -101,6 +109,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         return cell
     }
     
+    //sets up tableview to later be displayed kinda, dont really know how this one works or why we need it but im too scared to touch it
     let tableview: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = UIColor.white
@@ -109,14 +118,16 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         return tv
     }()
     
-    
+    //set up table view class
     func setupTableView() {
+        //register is really important
         tableview.delegate = self
         tableview.dataSource = self
         tableview.register(TermCell.self, forCellReuseIdentifier: "cellId")
         
         view.addSubview(tableview)
         
+        //constraints
         NSLayoutConstraint.activate([
             tableview.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300),
             tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor),
@@ -125,11 +136,8 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         ])
     }
     
-
+    //view did load
     override func viewDidLoad() {
-        let vc = FibbageViewController(nibName: "FibbageViewController", bundle: nil)
-        //termArray = vc.termsArray
-        print(vc.termsArray)
         super.viewDidLoad()
         setupTableView()
         setUpDefinition()
@@ -138,13 +146,17 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     }
 }
 
+
+//CELL FUNCTIONS
 class TermCell: UITableViewCell {
     
+    //initializes the cells when called in table i think
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         setupView()
     }
+    
+    //All the important cell constraints
     func setupView() {
         addSubview(cellView)
         cellView.addSubview(termLabel)
@@ -163,14 +175,17 @@ class TermCell: UITableViewCell {
         
     }
     
+    //Cell background properties
     let cellView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.red
+        //corner radius is the rounding edges thing that looks nice for future reference
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
+    //Cell text properties, if you ever get a buhhhh something is wrong, big thinkin' ja feel?
     let termLabel: UILabel = {
         let label = UILabel()
         label.text = "Buhhhh"
@@ -180,6 +195,7 @@ class TermCell: UITableViewCell {
         return label
     }()
 
+    //no idea
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

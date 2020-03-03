@@ -10,7 +10,7 @@ import UIKit
 
 class FibbageViewController: UIViewController {
     //buhhhh
-    //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later]
+    //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later (maybe not tho, the best way to pass this info might be instantiating new values in placeholder variables from another class)]
     
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
     let placeholderTerm = "Krebs Cycle"
@@ -110,6 +110,11 @@ class FibbageViewController: UIViewController {
             //fix this later to reflect actual player count
             playerCount+=1
             if playerCount>3{
+                
+                //shuffles and sends array to selection screen,
+                //don't know how to also send data that says what player made which term
+                //shuffle makes it kinda hard, i think theres some sort of ID that the terms might have
+                //funny line referencing "toHome" will fix later
                 termsArray.append(placeholderTerm)
                 termsArray.shuffle()
                 performSegue(withIdentifier: "toHome", sender: self)
@@ -121,6 +126,10 @@ class FibbageViewController: UIViewController {
         }
         else {return}
     }
+    
+    //segue to FibTable class uhh haha I did something kinda dumb, this might mess with the login screen lol
+    //I'll fix it later but basically that line that mentions the "toHome" segue hijacks it and sends it to mine
+    //when we get the storyboard together I'll fix that
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toHome" {
             let controller = segue.destination as! FibTableView

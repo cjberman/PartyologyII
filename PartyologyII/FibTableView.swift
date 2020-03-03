@@ -8,8 +8,28 @@
 import UIKit
 import Foundation
 class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSource{
-    
+    var definition: String = ""
     var termArray = [String]()
+    var definitionLabel = UILabel()
+    
+    func setUpDefinition(){
+        //adding to view
+        view.addSubview(definitionLabel)
+        
+        //setting up properties
+        definitionLabel.text = "\(definition)"
+        definitionLabel.textColor = UIColor.black
+        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
+        definitionLabel.adjustsFontSizeToFitWidth = true
+        
+        //constraints
+        definitionLabel.preferredMaxLayoutWidth = view.frame.width-60
+        definitionLabel.numberOfLines = 0
+        definitionLabel.translatesAutoresizingMaskIntoConstraints = false
+        definitionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        definitionLabel.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        definitionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -42,7 +62,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         view.addSubview(tableview)
         
         NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: self.view.topAnchor),
+            tableview.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 300),
             tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor),
             tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
@@ -56,6 +76,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         print(vc.termsArray)
         super.viewDidLoad()
         setupTableView()
+        setUpDefinition()
     }
 }
 

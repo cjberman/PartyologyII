@@ -18,9 +18,33 @@ class FibbageViewController: UIViewController {
 
     
     var playerCount = 1
+    var definitionLabel = UILabel()
     var playerCounter = UILabel()
     var falseTermField = UITextField()
     let enter = UIButton()
+    
+    func setUpDefinition(){
+        //adding to view
+        view.addSubview(definitionLabel)
+        
+        //setting up properties
+        definitionLabel.backgroundColor = UIColor.orange
+        definitionLabel.text = "\(placeholderDefinition)"
+        definitionLabel.textColor = UIColor.white
+        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
+        definitionLabel.adjustsFontSizeToFitWidth = true
+        
+        definitionLabel.layer.cornerRadius = 30
+        
+        //constraints
+        definitionLabel.preferredMaxLayoutWidth = view.frame.width-60
+        definitionLabel.numberOfLines = 0
+        definitionLabel.translatesAutoresizingMaskIntoConstraints = false
+        definitionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        definitionLabel.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        definitionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        definitionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+    }
     
     func setUpPlayerCounter(){
         //adding to view
@@ -28,7 +52,7 @@ class FibbageViewController: UIViewController {
         
         //setting up properties
         playerCounter.text = "Player \(playerCount)"
-        playerCounter.textColor = UIColor.lightGray
+        playerCounter.textColor = UIColor.red
         playerCounter.font = UIFont(name: "Helvetica Neue", size: 30)
         playerCounter.adjustsFontSizeToFitWidth = true
         
@@ -59,11 +83,12 @@ class FibbageViewController: UIViewController {
         view.addSubview(enter)
         
         //setting up properties
-        enter.setTitle("Enter", for: .normal)
-        enter.setTitleColor(UIColor.lightGray, for: .normal)
-        enter.backgroundColor = UIColor.blue
+        enter.setTitle("  Enter  ", for: .normal)
+        enter.setTitleColor(UIColor.white, for: .normal)
+        enter.backgroundColor = UIColor.red
         enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
-        enter.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        enter.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        enter.layer.cornerRadius = 20
         
         //constraints
         enter.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +122,7 @@ class FibbageViewController: UIViewController {
         if segue.identifier == "toHome" {
             let controller = segue.destination as! FibTableView
             controller.termArray = termsArray
+            controller.definition = placeholderDefinition
 
         }
     }
@@ -106,6 +132,7 @@ class FibbageViewController: UIViewController {
         setUpEnter()
         setUpFalseTermField()
         setUpPlayerCounter()
+        setUpDefinition()
         
 
         // Do any additional setup after loading the view.

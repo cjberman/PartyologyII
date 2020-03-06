@@ -7,59 +7,78 @@
 //
 
 import UIKit
+
 //import FirebaseAuth
 
 class DeckChooseViewController: UIViewController {
 
     let enterButton = UIButton()
+    //let deckLabel = UILabel()
+ //   var accessDecks: DeckEditViewController = DeckEditViewController()
+    
+    //var deck: NSArray = NSArray()
+    
+    
+
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .black
+        return scrollView
+    }()
+    
+  
     
     func setUpEnter(){
-                view.addSubview(enterButton)
+        view.addSubview(enterButton)
                
-               enterButton.setTitle("Enter", for: .normal)
-                enterButton.setTitleColor(UIColor.red, for: .normal)
-               enterButton.backgroundColor = UIColor.black
-               enterButton.addTarget(self, action: #selector(fromEnterButton), for: .touchUpInside)
-               enterButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+        enterButton.setTitle("Enter", for: .normal)
+        enterButton.setTitleColor(UIColor.red, for: .normal)
+        enterButton.backgroundColor = UIColor.black
+        enterButton.addTarget(self, action: #selector(fromEnterButton), for: .touchUpInside)
+        enterButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
                
                //constraints
-               enterButton.translatesAutoresizingMaskIntoConstraints = false
-               enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-               enterButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-           }
-        
+        enterButton.translatesAutoresizingMaskIntoConstraints = false
+        enterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        enterButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    }
+//    func setUpScrollView(){
+//        self.view.addSubview(scrollView)
+//
+//        scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+//        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 8).isActive = true
+//        scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+//        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300).isActive = true
+    
+//        let accessDecks: DeckEditViewController = DeckEditViewController()
+//        var deck = accessDecks.deckList()
+//        scrollView.addSubview(deckLabel)
+//        deckLabel.text = "deck[0].name"
+//        deckLabel.backgroundColor = UIColor.black
+//        deckLabel.textColor = .red
+//        deckLabel.translatesAutoresizingMaskIntoConstraints = false
+//        deckLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 80.0).isActive = true
+//        deckLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 200.0).isActive = true
+//    }
+    
+    
         @objc func fromEnterButton(){
                self.performSegue(withIdentifier: "toGameChoose", sender: self)
-           }
+        }
         
-        
-    
-    
-    
-    
-    
-    func firstResponder(){
-//           if (Auth.auth().currentUser != nil) {
-//               self.becomeFirstResponder()
-//
-//           }
-       }
-       
-       override func viewDidLoad() {
+        func firstResponder(){
+     
+        }
+
+        override func viewDidLoad() {
             super.viewDidLoad()
+            
             firstResponder()
+            
             setUpEnter()
-       }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+            //setUpScrollView()
+            
+        
+        }
 }

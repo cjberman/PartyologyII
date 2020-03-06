@@ -75,10 +75,46 @@
                         <viewLayoutGuide key="safeArea" id="LmM-Y3-LaB"/>
                     </view>
                     <navigationItem key="navigationItem" id="zbG-NC-SNN"/>
+                    <connections>
+                        <segue destination="AJ8-L8-DmK" kind="show" identifier="toFibbage" id="nuh-KL-C4o"/>
+                        <segue destination="199-96-sg3" kind="show" identifier="toHeadsUp" id="7dd-LR-4ZL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIK-D8-T4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2974" y="-226"/>
+        </scene>
+        <!--Heads Up View Controller-->
+        <scene sceneID="EQj-8i-Ec3">
+            <objects>
+                <viewController id="199-96-sg3" customClass="HeadsUpViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qpf-nz-t7m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="2qu-mo-A3e"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zq9-Yx-r7g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iO5-bC-oMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4079" y="183"/>
+        </scene>
+        <!--Fibbage View Controller-->
+        <scene sceneID="6Wx-9s-4Sm">
+            <objects>
+                <viewController id="AJ8-L8-DmK" customClass="FibbageViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xil-O6-tuq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="esr-aH-EYS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZGP-bJ-YV2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xer-6R-zuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4086" y="-581"/>
         </scene>
         <!--Deck Edit View Controller-->
         <scene sceneID="YCC-Od-zew">

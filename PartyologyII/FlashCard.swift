@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FlashCard{
+class FlashCard: Codable{
     var term: String
     var definition: String
     

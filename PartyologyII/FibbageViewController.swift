@@ -130,14 +130,14 @@ class FibbageViewController: UIViewController {
     //segue to FibTable class uhh haha I did something kinda dumb, this might mess with the login screen lol
     //I'll fix it later but basically that line that mentions the "toHome" segue hijacks it and sends it to mine
     //when we get the storyboard together I'll fix that
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toHome" {
-            let controller = segue.destination as! FibTableView
-            controller.termArray = termsArray
-            controller.definition = placeholderDefinition
-
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toHome" {
+//            let controller = segue.destination as! FibTableView
+//            controller.termArray = termsArray
+//            controller.definition = placeholderDefinition
+//
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

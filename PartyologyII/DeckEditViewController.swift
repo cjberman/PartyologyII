@@ -15,7 +15,8 @@ class DeckEditViewController: UIViewController {
     var databaseHandle: DatabaseHandle?
 
     //test dictionary
-    let deck = Deck(c: [FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", " ")], n: "Random Things")
+    let deck = Deck(c: [FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_")], n: "Random Things")
+    var newDeck = Deck()
     var deckDisplay = UITextView()
     var decks = [Deck]()
     
@@ -28,15 +29,24 @@ class DeckEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for i in 0..<deck.cards.count{
-            print(deck.cards[i])
-        }
-        
+        //creating refrence object
         ref = Database.database().reference()
+
+        //adding the decks to the database
         addDeck(deck: deck)
-        //let snapshot = ref?.child("Decks").child(deck.name).child(<#T##pathString: String##String#>)
-        //print(snapshot?.key!)
+
+       
         
+        //attempting to retrieve data
+        for i in 0..<deck.cards.count{
+            let snapshot = ref?.child("Decks").child(deck.name).child(deck.cards[i].term)
+
+            guard let term = snapshot?.key else {return}
+            guard let definition = snapshot?.queryEqual(toValue: deck.cards[i].definition, childKey: term) else {return}
+            print(definition)
+            
+        }
+
     }
     
     func addDeck(deck: Deck){

@@ -41,7 +41,7 @@ class GameChooseViewController: UIViewController {
                       headsUpButton.setTitle("Heads Up", for: .normal)
                        headsUpButton.setTitleColor(UIColor.green, for: .normal)
                       headsUpButton.backgroundColor = UIColor.black
-                      headsUpButton.addTarget(self, action: #selector(fromFibbageButton), for: .touchUpInside)
+                      headsUpButton.addTarget(self, action: #selector(fromHeadsUpButton), for: .touchUpInside)
                       headsUpButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
                       
                       //constraints

@@ -13,6 +13,11 @@ class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
+    
+    struct card: Decodable {
+        var term: String
+        var definition: String
+    }
 
     //test dictionary
     let deck = Deck(c: [FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_")], n: "Random Things")
@@ -43,6 +48,8 @@ class DeckEditViewController: UIViewController {
 
             guard let term = snapshot?.key else {return}
             guard let definition = snapshot?.queryEqual(toValue: deck.cards[i].definition, childKey: term) else {return}
+            let decoder = JSONDecoder()
+//            let product = try decoder.decode(definition.self, from: definition)
             print(definition)
             
         }

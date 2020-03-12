@@ -17,6 +17,7 @@ class FlashCard: Codable{
         self.definition = definition
     }
     
+    //use .description to print a flashcard
     public var description: String{
         return "\(term): \(definition)"
     }

@@ -9,27 +9,20 @@
 import UIKit
 import FirebaseDatabase
 
+struct DeckOption: Decodable {
+    var name: String
+    var cards: [FlashCard]
+}
+
 class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
     
-    struct card: Decodable {
-        var term: String
-        var definition: String
-    }
 
     //test dictionary
-    let deck = Deck(c: [FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_")], n: "Random Things")
-    var newDeck = Deck()
-    var deckDisplay = UITextView()
+    let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
     var decks = [Deck]()
-    
-    func setUpDeckDisplay(){
-        view.addSubview(deckDisplay)
-        
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,43 +32,65 @@ class DeckEditViewController: UIViewController {
 
         //adding the decks to the database
         addDeck(deck: deck)
-
        
+        //test to print all the flashcards in a deck
+//        for i in pullDeck().cards{
+//            print(i.description)
+//        }
         
-        //attempting to retrieve data
-        for i in 0..<deck.cards.count{
-            let snapshot = ref?.child("Decks").child(deck.name).child(deck.cards[i].term)
-
-            guard let term = snapshot?.key else {return}
-            guard let definition = snapshot?.queryEqual(toValue: deck.cards[i].definition, childKey: term) else {return}
-            let decoder = JSONDecoder()
-//            let product = try decoder.decode(definition.self, from: definition)
-            print(definition)
-            
-        }
+        pullDeck()
 
     }
     
+    //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
         var dictionary = Dictionary<String, String>()
         
+        //creates a dictionary of term:definition
         for i in deck.cards{
             dictionary[i.term] = i.definition
         }
         
-        ref?.child("User").child("Decks").child(deck.name).setValue(dictionary)
+        //updates database with the dictionary
+        ref?.child("Decks").child("Deck").setValue(dictionary)
+        
+        //appends the made deck to an array of decks
+        //not sure if I use this but that's what the line does
         decks.append(deck)
     }
     
-    func deckList() -> [Deck]{
-
-        ref?.child("Decks").observe(.childAdded, with: { (snapshot) in
-            let deck = snapshot.value
-            print("\(deck)")
+    //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
+    func pullDeck() -> Deck {
+        let flashcard = FlashCard()
+        var newDeck = Deck()
+          
+        //if a child node in parent node "Decks" changes, reupdate everything
+        ref?.child("Decks").observeSingleEvent(of: .value, with: {snapshot in
+           //sets 'newDeck' name to name of deck
+            
+            let t = snapshot.value
+            print(t!)
+//            if let name = self.ref?.child("Decks").key{
+//                newDeck.name = name
+//            }
+//
+//            //sets term as snapshot key
+//            flashcard.term = snapshot.key
+//
+//            //sets constant definition as snapshot value
+//            let definition = snapshot.value as? String
+//
+//            //sets flashcard.definition to constant definition if exists
+//            if let actualDefinition = definition{
+//                flashcard.definition = actualDefinition
+//            }
+//
+//            newDeck.cards.append(flashcard)
         })
-        
-        return decks
+        return newDeck
     }
+    
+    
 
 
 }

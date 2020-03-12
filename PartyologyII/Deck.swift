@@ -13,7 +13,7 @@ class Deck{
     public var cards = [FlashCard]()
     public var name = String()
 
-    init(c: [FlashCard], n: String) {
+    init(_ c: [FlashCard], _ n: String) {
         cards = c
         name = n
     }
@@ -27,11 +27,6 @@ class Deck{
         return (cards.isEmpty) ?  nil : cards[Int.random(in: 0..<cards.count)]
     }
     
-//    func loopThroughDeck() -> String{
-//        for i in cards{
-//            
-//        }
-//    }
     
     func getQuickDeck(num: Int) -> Deck{
         let quickDeck = Deck()
@@ -45,6 +40,5 @@ class Deck{
         
         return quickDeck
     }
-
     
 }

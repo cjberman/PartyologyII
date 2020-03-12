@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="987" y="129"/>
         </scene>
-        <!--Deck Choose View Controller-->
+        <!--Deck Choose Table View-->
         <scene sceneID="f49-BU-Fle">
             <objects>
-                <viewController id="9bz-JH-9RE" customClass="DeckChooseViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9bz-JH-9RE" customClass="DeckChooseTableView" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jv3-ai-q1o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,10 +111,29 @@
                         <viewLayoutGuide key="safeArea" id="esr-aH-EYS"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZGP-bJ-YV2"/>
+                    <connections>
+                        <segue destination="wTF-SN-KTi" kind="show" id="BLG-vI-KmI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xer-6R-zuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4086" y="-581"/>
+        </scene>
+        <!--Fib Table View-->
+        <scene sceneID="Bhb-2V-s9G">
+            <objects>
+                <viewController id="wTF-SN-KTi" customClass="FibTableView" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ldk-G3-voP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="VOK-A1-jj6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cbW-p4-uoA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ia-9n-gV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5246" y="-581"/>
         </scene>
         <!--Deck Edit View Controller-->
         <scene sceneID="YCC-Od-zew">

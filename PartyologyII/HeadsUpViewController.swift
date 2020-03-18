@@ -13,38 +13,34 @@ class HeadsUpViewController: UIViewController {
     
     //instantiate deck
     let deck = Deck()
-    let definitionLabel = UILabel()
+    let termLabel = UILabel()
     var motionManager = CMMotionManager()
     
     
     //set up label
-    func setUpDefinitionLabel(){
+    func setUptermLabel(){
         //adding to view
-        view.addSubview(definitionLabel)
+        view.addSubview(termLabel)
         
         //setting up properties
         
-        definitionLabel.text = "Placeholder"
-        definitionLabel.textColor = UIColor.black
-        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 30)
+        termLabel.text = "Placeholder"
+        termLabel.textColor = UIColor.black
+        termLabel.font = UIFont(name: "Helvetica Neue", size: 30)
         
         //constraints
-        definitionLabel.translatesAutoresizingMaskIntoConstraints = false
-        definitionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        definitionLabel.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-    
+        termLabel.translatesAutoresizingMaskIntoConstraints = false
+        termLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        termLabel.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    }
         
     //viewDidLoad
-    func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         accelerometer(false)
         
-        setUpDefinitionLabel()
-        
-        //May or may not have to optional bind this
-//        definitionLabel.text = deck.getCard()?.definition
-
+        setUptermLabel()
         
         view.backgroundColor = UIColor.white
     }
@@ -72,42 +68,6 @@ class HeadsUpViewController: UIViewController {
         }
     }
     
-    func gyroscope(_ animated: Bool){
-        motionManager.gyroUpdateInterval = 0.2
-        //        var movement = true
-        
-        motionManager.startGyroUpdates(to: OperationQueue.current!) {(data, error) in if let myData = data{
-            
-            if myData.rotationRate.y > 1.75{
-                print("Rotate back")
-                print(myData.rotationRate.y)
-                self.view.backgroundColor = UIColor.red
-                
-                
-                
-                
-            }
-            else if myData.rotationRate.y < -1.75{
-                print("Rotate forward")
-                print(myData.rotationRate.y)
-                self.view.backgroundColor = UIColor.green
-                
-                
-                
-                
-                
-            }
-            
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-
-                
-            }
-            
-            }
-        }
-        
-    }
     
 }
-}
+

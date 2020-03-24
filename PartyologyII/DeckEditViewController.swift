@@ -14,11 +14,17 @@ struct DeckOption: Decodable {
     var cards: [FlashCard]
 }
 
+struct CardOption: Decodable {
+    var term: String
+    var definition: String
+}
+
 class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
-    
+    var deckOption: DeckOption?
+    var cardOption: CardOption?
 
     //test dictionary
     let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
@@ -38,7 +44,7 @@ class DeckEditViewController: UIViewController {
 //            print(i.description)
 //        }
         
-        pullDeck()
+        pullDeck(d: deck)
 
     }
     
@@ -60,37 +66,29 @@ class DeckEditViewController: UIViewController {
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck() -> Deck {
-        let flashcard = FlashCard()
-        var newDeck = Deck()
-          
-        //if a child node in parent node "Decks" changes, reupdate everything
-        ref?.child("Decks").observeSingleEvent(of: .value, with: {snapshot in
-           //sets 'newDeck' name to name of deck
-            
-            let t = snapshot.value
-            print(t!)
-//            if let name = self.ref?.child("Decks").key{
-//                newDeck.name = name
-//            }
-//
-//            //sets term as snapshot key
-//            flashcard.term = snapshot.key
-//
-//            //sets constant definition as snapshot value
-//            let definition = snapshot.value as? String
-//
-//            //sets flashcard.definition to constant definition if exists
-//            if let actualDefinition = definition{
-//                flashcard.definition = actualDefinition
-//            }
-//
-//            newDeck.cards.append(flashcard)
-        })
-        return newDeck
+    func pullDeck(d: Deck){
+        let jsonURLString = "https://partyologyii.firebaseio.com/Decks\(d.name)"
+               
+        guard let url = URL(string: jsonURLString) else {return}
+        
+        //Use the URLSession singleton to perform a dataTask. After dataTask gets the informaton from our URL, it will call the closure, passing it data, response, err. .resume() starts our dataTask
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+        guard let data = data else {return}
+
+            do{
+                self.deckOption = try JSONDecoder().decode(DeckOption.self, from: data)
+                print(self.deckOption)
+//                DispatchQueue.main.async {
+//                    self.articleTableView.reloadData()
+//                }
+            }catch let jsonErr{
+                print(jsonErr)
+            }
+            }.resume()
     }
     
     
+
 
 
 }

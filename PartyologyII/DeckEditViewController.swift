@@ -9,22 +9,25 @@
 import UIKit
 import FirebaseDatabase
 
-struct DeckOption: Decodable {
+struct DeckOption: Decodable, Encodable {
     var name: String
     var cards: [FlashCard]
 }
 
-struct CardOption: Decodable {
-    var term: String
-    var definition: String
+struct DeckList: Decodable, Encodable {
+    var decks: [DeckOption]
+}
+
+struct DataData: Decodable, Encodable {
+    var data: DeckList
 }
 
 class DeckEditViewController: UIViewController {
     
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
-    var deckOption: DeckOption?
-    var cardOption: CardOption?
+    var deckDecodable: DataData?
+    
 
     //test dictionary
     let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
@@ -38,51 +41,55 @@ class DeckEditViewController: UIViewController {
 
         //adding the decks to the database
         addDeck(deck: deck)
-       
-        //test to print all the flashcards in a deck
-//        for i in pullDeck().cards{
-//            print(i.description)
-//        }
         
-        pullDeck(d: deck)
-
+        pullDeck()
+        
     }
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
         var dictionary = Dictionary<String, String>()
+        var decks: [Deck] = []
+        
+        decks.append(deck)
         
         //creates a dictionary of term:definition
         for i in deck.cards{
             dictionary[i.term] = i.definition
         }
         
-        //updates database with the dictionary
-        ref?.child("Decks").child("Deck").setValue(dictionary)
+        for i in deck.cards{
+            dictionary[i.term] = i.definition
+        }
         
-        //appends the made deck to an array of decks
-        //not sure if I use this but that's what the line does
-        decks.append(deck)
+        //updates database with the dictionary
+        ref?.child("Decks").child(deck.name).setValue(dictionary)
+        
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck(d: Deck){
-        let jsonURLString = "https://partyologyii.firebaseio.com/Decks\(d.name)"
+    func pullDeck(){
+        let jsonURLString = "https://partyologyii.firebaseio.com/"
                
         guard let url = URL(string: jsonURLString) else {return}
         
+        print("Entering pullDeck function")
         //Use the URLSession singleton to perform a dataTask. After dataTask gets the informaton from our URL, it will call the closure, passing it data, response, err. .resume() starts our dataTask
         URLSession.shared.dataTask(with: url) { (data, response, err) in
         guard let data = data else {return}
 
+             print("Made it into URLSession")
+            
             do{
-                self.deckOption = try JSONDecoder().decode(DeckOption.self, from: data)
-                print(self.deckOption)
-//                DispatchQueue.main.async {
-//                    self.articleTableView.reloadData()
-//                }
+                self.deckDecodable = try JSONDecoder().decode(DataData.self, from: data)
+                print(self.deckDecodable as Any)
+                print("Made it into do part")
+                DispatchQueue.main.async {
+                    print("ASYNC")
+                }
             }catch let jsonErr{
                 print(jsonErr)
+                print("do part failed")
             }
             }.resume()
     }
@@ -92,3 +99,4 @@ class DeckEditViewController: UIViewController {
 
 
 }
+

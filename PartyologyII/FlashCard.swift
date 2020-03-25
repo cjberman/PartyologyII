@@ -22,5 +22,7 @@ class FlashCard: Codable{
         return "\(term): \(definition)"
     }
     
+    
+    
 }
 

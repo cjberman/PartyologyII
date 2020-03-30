@@ -15,7 +15,7 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
     var deckNameLabel = UILabel()
     let enterButton = UIButton()
     var deckk = DeckEditViewController()
-    var deckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 1", "Deck 2", "Deck 3", "Deck 1", "Deck 2", "Deck 3",]
+    var deckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9",]
     
     @objc func enterBut(){
         
@@ -84,7 +84,7 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
   
     let tableview: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = UIColor.white
+        tv.backgroundColor = UIColor.black
         tv.separatorColor = UIColor.white
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
@@ -164,7 +164,24 @@ class DeckCell: UITableViewCell {
     let deckLabel: UILabel = {
         let label = UILabel()
         label.text = "Deck Name"
-        label.textColor = UIColor.blue
+        var num = Int.random(in: 1...5)
+        if(num == 1){
+                label.textColor = UIColor.blue
+        }
+        else if(num == 2){
+            label.textColor = UIColor.red
+        }
+        else if(num == 3){
+            label.textColor = UIColor.yellow
+        }
+        else if(num == 4){
+            label.textColor = UIColor.green
+        }
+        else{
+            label.textColor = UIColor.white
+        }
+        
+        //label.textColor = UIColor.blue
         label.font = UIFont(name: "CourierNewPSMT", size: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

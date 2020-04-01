@@ -8,21 +8,43 @@
 
 import UIKit
 
+class term {
+    var text:String = "Placeholder"
+    var player:Int = 0
+    
+    init(){
+    }
+    
+    init(text:String,player:Int){
+        self.text=text
+        self.player=player
+    }
+}
+
 class FibbageViewController: UIViewController {
     //buhhhh
     //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later (maybe not tho, the best way to pass this info might be instantiating new values in placeholder variables from another class)]
     
     let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
-    let placeholderTerm = "Krebs Cycle"
-    var termsArray : [String] = []
+    let placeholderTerm = term(text:"Krebs Cycle",player:0)
+    var termsArray : [term] = []
+    var scores:[Int:Int]=[1:0,2:0,3:0]
 
-    
     var playerCount = 1
     var definitionLabel = UILabel()
     var playerCounter = UILabel()
     var falseTermField = UITextField()
     let enter = UIButton()
     
+    
+    
+    
+    //Function used in order to update from fibtableview class
+    func updateScores(key:Int, value:Int){
+        scores[key]=value
+        
+        print(scores)
+    }
     
     func setUpDefinition(){
         //adding to view
@@ -99,8 +121,9 @@ class FibbageViewController: UIViewController {
     }
     
     @objc func enterButton(){
-        if let newTerm = falseTermField.text{
+        if let newTermText = falseTermField.text{
             //Add new false term to array, clear text field
+            let newTerm = term(text: newTermText, player: playerCount)
             termsArray.append(newTerm)
             let vc = FibTableView(nibName: "FibTableView", bundle: nil)
             vc.termArray = termsArray
@@ -117,7 +140,7 @@ class FibbageViewController: UIViewController {
                 //funny line referencing "toHome" will fix later
                 termsArray.append(placeholderTerm)
                 termsArray.shuffle()
-                performSegue(withIdentifier: "toHome", sender: self)
+                performSegue(withIdentifier: "toFibTable", sender: self)
                 return
             }
             //Updates player counter
@@ -131,7 +154,7 @@ class FibbageViewController: UIViewController {
     //I'll fix it later but basically that line that mentions the "toHome" segue hijacks it and sends it to mine
     //when we get the storyboard together I'll fix that
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toHome" {
+        if segue.identifier == "toFibTable" {
             let controller = segue.destination as! FibTableView
             controller.termArray = termsArray
             controller.definition = placeholderDefinition

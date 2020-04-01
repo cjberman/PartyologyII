@@ -12,11 +12,15 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
 //UI FUNCTIONS AND NON TABLE VARIABLES
 //The majority of the following declarations and setup functions are poached from the Fibbage class, if i can find a way to like do macros or not take up all this space with identical code i'll get rid of it but thats low priority
     var definition: String = ""
-    var termArray = [String]()
+    var termArray = [term]()
     var definitionLabel = UILabel()
     var playerCounter = UILabel()
     var playerCount = 1
     let enter = UIButton()
+    
+    //This is an instance of the first view controller, NOT THE ACTUAL THING
+    //I WILL NEED TO GO BACK AND EITHER PASS WHATS IN THIS BACK OR PUSH THE DATA FROM IT TO THE END SCREEN
+    let vc = FibbageViewController(nibName: "FibbageViewController", bundle: nil).self
     
     func setUpPlayerCounter(){
         //adding to view
@@ -36,19 +40,33 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     
     @objc func enterButton(){
         
-         //path row is how we'll keep track of player choices
+        //path row is how we'll keep track of player choices
         guard let path = tableview.indexPathForSelectedRow else {return}
-        print(path.row)
+        let cell = tableview.cellForRow(at: path) as! TermCell
+        print(cell.playerKey)
         
+    //THE FOLLOWING IF ELSE DOES NOT CHANGE THE DICTIONARY IN THE FIBBAGE CLASS
+    //IT CHANGES THE INSTANCE OF THE CLASS INSTANTIATED IN THIS CLASS
+    //WHEN A SEGUE IS MADE BACK TO THE FIRST CLASS OR TO THE END SCREEN THE DATA FROM THE INSTANCE SHOULD BE SENT
+    //I JUST HAVENT DONE THAT PART YET
+        //If player chooses the correct answer
+        if(cell.playerKey==0){
+            guard let currentPlayerScore = vc.scores[playerCount] else {return}
+            vc.updateScores(key: playerCount, value: currentPlayerScore+2)
+        }
+        //If player chooses a false answer
+        else{
+            guard let currentPlayerScore = vc.scores[cell.playerKey] else {return}
+            vc.updateScores(key: cell.playerKey, value: currentPlayerScore+1)
+        }
+
         //updates player count, will add limit later to end round
         playerCount = playerCount+1
         setUpPlayerCounter()
         
         //deselects selected row
-        
         tableview.deselectRow(at: path, animated: false)
-        
-    
+
     }
     
     func setUpEnter(){
@@ -105,7 +123,8 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! TermCell
         cell.backgroundColor = UIColor.white
-        cell.termLabel.text = "\(termArray[indexPath.row])"
+        cell.termLabel.text = "\(termArray[indexPath.row].text)"
+        cell.playerKey=termArray[indexPath.row].player
         return cell
     }
     
@@ -150,6 +169,12 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
 //CELL FUNCTIONS
 class TermCell: UITableViewCell {
     
+//playerkey is a funny idea i had to keep track of who did what cell
+//If its 0 then its the right answer, all other numbers are mapped to a player
+//-1 means something is wrong
+    
+    var playerKey = -1
+    
     //initializes the cells when called in table i think
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -172,7 +197,6 @@ class TermCell: UITableViewCell {
         termLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         termLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         termLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true
-        
     }
     
     //Cell background properties

@@ -135,9 +135,6 @@ class FibbageViewController: UIViewController {
             if playerCount>3{
                 
                 //shuffles and sends array to selection screen,
-                //don't know how to also send data that says what player made which term
-                //shuffle makes it kinda hard, i think theres some sort of ID that the terms might have
-                //funny line referencing "toHome" will fix later
                 termsArray.append(placeholderTerm)
                 termsArray.shuffle()
                 performSegue(withIdentifier: "toFibTable", sender: self)

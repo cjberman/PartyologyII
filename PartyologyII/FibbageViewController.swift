@@ -7,7 +7,24 @@
 //
 
 import UIKit
-
+@IBDesignable class PaddingLabel: UILabel {
+    
+    @IBInspectable var topInset: CGFloat = 5.0
+    @IBInspectable var bottomInset: CGFloat = 5.0
+    @IBInspectable var leftInset: CGFloat = 16.0
+    @IBInspectable var rightInset: CGFloat = 16.0
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+}
 class term {
     var text:String = "Placeholder"
     var player:Int = 0
@@ -31,7 +48,7 @@ class FibbageViewController: UIViewController {
     var scores:[Int:Int]=[1:0,2:0,3:0]
 
     var playerCount = 1
-    var definitionLabel = UILabel()
+    var definitionLabel = PaddingLabel()
     var playerCounter = UILabel()
     var falseTermField = UITextField()
     let enter = UIButton()
@@ -51,12 +68,13 @@ class FibbageViewController: UIViewController {
         view.addSubview(definitionLabel)
         
         //setting up properties
-        definitionLabel.backgroundColor = UIColor.orange
+        definitionLabel.layer.cornerRadius = 30
+        definitionLabel.layer.backgroundColor = UIColor.orange.cgColor
         definitionLabel.text = "\(placeholderDefinition)"
         definitionLabel.textColor = UIColor.white
         definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
         definitionLabel.adjustsFontSizeToFitWidth = true
-        definitionLabel.layer.cornerRadius = 30
+      
         
         
         
@@ -64,8 +82,7 @@ class FibbageViewController: UIViewController {
         definitionLabel.preferredMaxLayoutWidth = view.frame.width-60
         definitionLabel.numberOfLines = 0
         definitionLabel.translatesAutoresizingMaskIntoConstraints = false
-        definitionLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        definitionLabel.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -30).isActive = true
+        definitionLabel.centerXAnchor.constraint(equalToSystemSpacingAfter: view.centerXAnchor, multiplier: 0).isActive = true
         definitionLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
         definitionLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
     }

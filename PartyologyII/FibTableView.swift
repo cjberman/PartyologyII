@@ -60,8 +60,12 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
             vc.updateScores(key: cell.playerKey, value: currentPlayerScore+1)
         }
 
-        //updates player count, will add limit later to end round
+        //updates player count, segues if limit is met
         playerCount = playerCount+1
+        if playerCount>3{
+            performSegue(withIdentifier: "toScoreScreen", sender: self)
+            return
+        }
         setUpPlayerCounter()
         
         //deselects selected row
@@ -126,6 +130,12 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         cell.termLabel.text = "\(termArray[indexPath.row].text)"
         cell.playerKey=termArray[indexPath.row].player
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableview.cellForRow(at: indexPath) as! TermCell
+        if cell.playerKey==playerCount{
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
     
     //sets up tableview to later be displayed kinda, dont really know how this one works or why we need it but im too scared to touch it

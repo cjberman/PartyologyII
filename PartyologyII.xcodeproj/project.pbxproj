@@ -10,6 +10,7 @@
 		4DF454EA240551FC00146876 /* FlashCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454E9240551FC00146876 /* FlashCard.swift */; };
 		4DF454EC2405526400146876 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF454EB2405526400146876 /* Deck.swift */; };
 		690BD071240D3FB4003EF126 /* FibTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690BD070240D3FB4003EF126 /* FibTableView.swift */; };
+		692C1C1E243501D400DB9520 /* ScoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692C1C1D243501D400DB9520 /* ScoreScreen.swift */; };
 		F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64823FEC2F00042F4A2 /* AppDelegate.swift */; };
 		F3DFC64B23FEC2F00042F4A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */; };
 		F3DFC64D23FEC2F00042F4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		4DF454E9240551FC00146876 /* FlashCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCard.swift; sourceTree = "<group>"; };
 		4DF454EB2405526400146876 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		690BD070240D3FB4003EF126 /* FibTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibTableView.swift; sourceTree = "<group>"; };
+		692C1C1D243501D400DB9520 /* ScoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreScreen.swift; sourceTree = "<group>"; };
 		A2929EC0CBF633DEE61B5058 /* libPods-PartyologyII.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PartyologyII.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF4D22A75D7CEAD70A6AF1D /* Pods-PartyologyII.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyologyII.release.xcconfig"; path = "Target Support Files/Pods-PartyologyII/Pods-PartyologyII.release.xcconfig"; sourceTree = "<group>"; };
 		F3DFC64523FEC2F00042F4A2 /* PartyologyII.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyologyII.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,12 +153,13 @@
 				F3DFC64A23FEC2F00042F4A2 /* SceneDelegate.swift */,
 				F3DFC64C23FEC2F00042F4A2 /* ViewController.swift */,
 				F3DFC64E23FEC2F00042F4A2 /* Main.storyboard */,
+				F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */,
 				690BD070240D3FB4003EF126 /* FibTableView.swift */,
+				692C1C1D243501D400DB9520 /* ScoreScreen.swift */,
 				F3DFC65123FEC2F60042F4A2 /* Assets.xcassets */,
 				F3DFC65323FEC2F60042F4A2 /* LaunchScreen.storyboard */,
 				F3DFC67C23FECCCE0042F4A2 /* HomeScreenViewController.swift */,
 				F3DFC67E23FECD0F0042F4A2 /* HeadsUpViewController.swift */,
-				F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */,
 				F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */,
 				4DF454E9240551FC00146876 /* FlashCard.swift */,
 				4DF454EB2405526400146876 /* Deck.swift */,
@@ -352,6 +355,7 @@
 				FD17CD9C24127D350027B0DE /* DeckChooseTableView.swift in Sources */,
 				F3DFC67F23FECD0F0042F4A2 /* HeadsUpViewController.swift in Sources */,
 				FD17CD9A240D405F0027B0DE /* GameChooseViewController.swift in Sources */,
+				692C1C1E243501D400DB9520 /* ScoreScreen.swift in Sources */,
 				4DF454EA240551FC00146876 /* FlashCard.swift in Sources */,
 				690BD071240D3FB4003EF126 /* FibTableView.swift in Sources */,
 				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,

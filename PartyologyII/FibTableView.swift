@@ -13,6 +13,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
 //The majority of the following declarations and setup functions are poached from the Fibbage class, if i can find a way to like do macros or not take up all this space with identical code i'll get rid of it but thats low priority
     var definition: String = ""
     var termArray = [term]()
+    var scores = [Int:Int]()
     var definitionLabel = UILabel()
     var playerCounter = UILabel()
     var playerCount = 1
@@ -49,6 +50,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     //IT CHANGES THE INSTANCE OF THE CLASS INSTANTIATED IN THIS CLASS
     //WHEN A SEGUE IS MADE BACK TO THE FIRST CLASS OR TO THE END SCREEN THE DATA FROM THE INSTANCE SHOULD BE SENT
     //I JUST HAVENT DONE THAT PART YET
+    //IT CURRENTLY JUST MAPS THE VALUE IN THE INSTANCE TO A DICTIONARY IN THIS CLASS
         //If player chooses the correct answer
         if(cell.playerKey==0){
             guard let currentPlayerScore = vc.scores[playerCount] else {return}
@@ -59,6 +61,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
             guard let currentPlayerScore = vc.scores[cell.playerKey] else {return}
             vc.updateScores(key: cell.playerKey, value: currentPlayerScore+1)
         }
+        scores = vc.scores
 
         //updates player count, segues if limit is met
         playerCount = playerCount+1
@@ -70,7 +73,13 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         
         //deselects selected row
         tableview.deselectRow(at: path, animated: false)
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toScoreScreen" {
+            let controller = segue.destination as! ScoreScreen
+            controller.scores = scores
+        }
     }
     
     func setUpEnter(){
@@ -80,7 +89,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         //setting up properties
         enter.setTitle("  Enter  ", for: .normal)
         enter.setTitleColor(UIColor.white, for: .normal)
-        enter.backgroundColor = UIColor.red
+        enter.backgroundColor = UIColor.blue
         enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
         enter.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
         enter.layer.cornerRadius = 20

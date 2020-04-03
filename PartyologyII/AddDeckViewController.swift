@@ -14,6 +14,7 @@ class AddDeckViewController: UIViewController {
     //Deck and flashcard variables
     var newDeck: Deck = Deck()
     var newCard: FlashCard = FlashCard()
+    let devc = DeckEditViewController()
     
     //database variables
     var ref: DatabaseReference?
@@ -166,6 +167,7 @@ class AddDeckViewController: UIViewController {
             newDeck.name = deckNameText
         }
         addDeck(deck: newDeck)
+        devc.decks.append(newDeck)
         newDeck.name = ""
         newDeck.cards.removeAll()
         

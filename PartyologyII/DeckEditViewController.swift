@@ -10,34 +10,10 @@ import UIKit
 import FirebaseDatabase
 
 
-struct IndividualDeck: Decodable{
-    var deckArray: [String: [Cards]]
-}
-
-struct Cards: Decodable{
-    var term: String
-    var definition: String
-}
-
-extension DataSnapshot {
-    var data: Data? {
-        guard let value = value, !(value is NSNull) else { return nil }
-        return try? JSONSerialization.data(withJSONObject: value)
-    }
-    var json: String? {
-        return data?.string
-    }
-}
-extension Data {
-    var string: String? {
-        return String(data: self, encoding: .utf8)
-    }
-}
-
 class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
 
     //ui variables
-    var addDeck = UIButton()
+    var addDeckButton = UIButton()
     let deckList: UITableView = {
            let tv = UITableView()
            tv.backgroundColor = UIColor.black
@@ -53,72 +29,76 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     //test dictionary
     let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
     let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
-    var decks: [Deck] = []
     var workingDeckName = ""
+    var decks: [Deck] = []
 
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        addDeckButton()
+        setUpAddDeckButton()
         setupDeckList()
         
         //creating refrence object
         ref = Database.database().reference()
 
         //adding the decks to the database
-        addDeck(deck: deckII)
+        addDeck(deck: deck)
         
-        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
-            self.pullDeck(s: snapshot)
+        ref?.child("Decks").observe(.value, with: { (snapshot) in
+            self.decks = self.pullDeck(s: snapshot)
         })
         
     }
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
-        var dictionary = Dictionary<String, String>()
-        decks.append(deck)
+        //updates database with the dictionary
+        ref?.child("Decks").child(deck.name).child("Cards")
         
         //creates a dictionary of term:definition
-        for i in deck.cards{
-            dictionary[i.term] = i.definition
+        for i in 0..<deck.cards.count{ ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Term").setValue(deck.cards[i].term)
+            ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
         }
-        
-        //updates database with the dictionary
-        ref?.child(deck.name).setValue(dictionary)
         
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck(s: DataSnapshot){
-        guard let data = s.data else { return }
+    func pullDeck(s: DataSnapshot) -> [Deck]{
+        var placeHolderDeck: Deck = Deck()
+        var placeHolderCard: FlashCard = FlashCard()
         
-        do{
-            let info = try JSONDecoder().decode(IndividualDeck.self, from: data)
-            print(info)
-        }catch let jsonErr{
-            print(jsonErr)
+        if let result = s.children.allObjects as? [DataSnapshot] {
+            for child in result {
+                placeHolderDeck.name = child.key
+                print(placeHolderDeck.name)
+                
+               
+            }
         }
+
+
+        
+        return decks
     }
         
    
-    func addDeckButton(){
+    func setUpAddDeckButton(){
         //adding to view
-        view.addSubview(addDeck)
+        view.addSubview(addDeckButton)
         
         //setting up properties
-        addDeck.setTitle("Add Deck", for: .normal)
-        addDeck.setTitleColor(UIColor.lightGray, for: .normal)
-        addDeck.backgroundColor = UIColor.blue
-        addDeck.addTarget(self, action: #selector(addDeckSegue), for: .touchUpInside)
-        addDeck.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        addDeckButton.setTitle("Add Deck", for: .normal)
+        addDeckButton.setTitleColor(UIColor.lightGray, for: .normal)
+        addDeckButton.backgroundColor = UIColor.blue
+        addDeckButton.addTarget(self, action: #selector(addDeckSegue), for: .touchUpInside)
+        addDeckButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
         
         //constraints
-        addDeck.translatesAutoresizingMaskIntoConstraints = false
-        addDeck.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        addDeck.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        addDeckButton.translatesAutoresizingMaskIntoConstraints = false
+        addDeckButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        addDeckButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
     }
     
     @objc func addDeckSegue(){

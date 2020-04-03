@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AJ8-L8-DmK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TOu-0B-Glu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,30 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Up View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="SignUpViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <segue destination="VLb-73-pVH" kind="show" identifier="toHome" id="jg3-aR-tRV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="133" y="129"/>
-        </scene>
         <!--Home Screen View Controller-->
         <scene sceneID="ZtA-0V-7HU">
             <objects>
                 <viewController id="VLb-73-pVH" customClass="HomeScreenViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ikb-6W-KhO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Xzc-ib-Fby"/>
@@ -167,13 +149,53 @@
                         <viewLayoutGuide key="safeArea" id="tTp-Iu-PGX"/>
                     </view>
                     <navigationItem key="navigationItem" id="xZ6-vo-eeM"/>
+                    <connections>
+                        <segue destination="Eaz-RK-SuB" kind="show" identifier="toAddDeck" id="MNu-DD-hZi"/>
+                        <segue destination="xB4-ZZ-bq6" kind="show" identifier="toEditDeck" id="Iu5-I2-vQM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEl-mb-PbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="448"/>
+            <point key="canvasLocation" x="2009" y="907"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fYl-jU-Lk5">
+            <objects>
+                <viewController id="xB4-ZZ-bq6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oFs-4Q-vN1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="9a0-m1-Pah"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="N2m-So-Npa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kzc-DC-DjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="562"/>
+        </scene>
+        <!--Add Deck View Controller-->
+        <scene sceneID="K6l-ss-Hj0">
+            <objects>
+                <viewController id="Eaz-RK-SuB" customClass="AddDeckViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bvg-YD-hru">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="5w4-h0-Dkm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g9Q-73-pOp"/>
+                    <connections>
+                        <segue destination="TOu-0B-Glu" kind="show" identifier="returnToDeckEdit" id="4nH-tD-60h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40H-qy-8Rg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2841" y="1314"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="4nH-tD-60h"/>
         <segue reference="NDn-O2-Mfk"/>
     </inferredMetricsTieBreakers>
 </document>

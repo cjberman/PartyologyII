@@ -22,19 +22,35 @@ struct DataData: Decodable, Encodable {
     var data: DeckList
 }
 
-class DeckEditViewController: UIViewController {
+class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
+
+    //ui variables
+    var addDeck = UIButton()
+    let deckList: UITableView = {
+           let tv = UITableView()
+           tv.backgroundColor = UIColor.black
+           tv.separatorColor = UIColor.white
+           tv.translatesAutoresizingMaskIntoConstraints = false
+           return tv
+       }()
     
+    //database variables
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
     var deckDecodable: DataData?
-    
 
     //test dictionary
     let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
-    var decks = [Deck]()
+    var decks: [Deck] = []
+    var workingDeckName = ""
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        addDeckButton()
+        setupDeckList()
         
         //creating refrence object
         ref = Database.database().reference()
@@ -42,15 +58,15 @@ class DeckEditViewController: UIViewController {
         //adding the decks to the database
         addDeck(deck: deck)
         
-        pullDeck()
+        ref?.child("Decks").observeSingleEvent(of: .value, with: { (snapshot) in
+            self.pullDeck(s: snapshot)
+        })
         
     }
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
         var dictionary = Dictionary<String, String>()
-        var decks: [Deck] = []
-        
         decks.append(deck)
         
         //creates a dictionary of term:definition
@@ -59,51 +75,79 @@ class DeckEditViewController: UIViewController {
         }
         
         //updates database with the dictionary
-        ref?.child("Decks").child(deck.name).setValue(dictionary)
+        ref?.child("Decks").childByAutoId().child("Name").setValue(deck.name)
         
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck(){
-//        let jsonURLString = "https://partyologyii.firebaseio.com/"
-//
-//        guard let url = URL(string: jsonURLString) else {return}
-//
-//        print("Entering pullDeck function")
-//        //Use the URLSession singleton to perform a dataTask. After dataTask gets the informaton from our URL, it will call the closure, passing it data, response, err. .resume() starts our dataTask
-//        URLSession.shared.dataTask(with: url) { (data, response, err) in
-//        guard let data = data else {return}
-//
-//             print("Made it into URLSession")
-//
-//            do{
-//                self.deckDecodable = try JSONDecoder().decode(DataData.self, from: data)
-//                print(self.deckDecodable as Any)
-//                print("Made it into do part")
-//                DispatchQueue.main.async {
-//                    print("ASYNC")
-//                }
-//            }catch let jsonErr{
-//                print(jsonErr)
-//                print("do part failed")
-//            }
-//            }.resume()
-//    }
+    func pullDeck(s: DataSnapshot){
+        print(ref?.child("Decks").child(s.key as! String))
+    }
         
-        ref?.child("Decks").observeSingleEvent(of: .value, with: { (snapshot) in
-          // Get user value
-          let value = snapshot.value as? NSDictionary
-            print(value)
-
-          // ...
-          }) { (error) in
-            print(error.localizedDescription)
+   
+    func addDeckButton(){
+        //adding to view
+        view.addSubview(addDeck)
+        
+        //setting up properties
+        addDeck.setTitle("Add Deck", for: .normal)
+        addDeck.setTitleColor(UIColor.lightGray, for: .normal)
+        addDeck.backgroundColor = UIColor.blue
+        addDeck.addTarget(self, action: #selector(addDeckSegue), for: .touchUpInside)
+        addDeck.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        
+        //constraints
+        addDeck.translatesAutoresizingMaskIntoConstraints = false
+        addDeck.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        addDeck.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    }
+    
+    @objc func addDeckSegue(){
+        self.performSegue(withIdentifier: "toAddDeck", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return decks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = deckList.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DeckCell
+        // cell.backgroundColor = UIColor.white
+        cell.deckLabel.text = "\(decks[indexPath.row].name)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: indexPath!) as? UITableViewCell
+        
+        if let cell = currentCell?.textLabel?.text{
+            workingDeckName = cell
         }
+        
+        performSegue(withIdentifier: "toEditDeck", sender: self)
+    }
     
+    func setupDeckList() {
+        //register is really important
+        deckList.delegate = self
+        deckList.dataSource = self
+        deckList.register(DeckCell.self, forCellReuseIdentifier: "cellId")
+        
+        view.addSubview(deckList)
+        
+        //constraints
+        NSLayoutConstraint.activate([
+            deckList.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+            deckList.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            deckList.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            deckList.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
+        ])
+    }
     
-
-
-
-}
-
 }

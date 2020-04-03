@@ -9,17 +9,29 @@
 import UIKit
 import FirebaseDatabase
 
-struct DeckOption: Decodable, Encodable {
-    var name: String
-    var cards: [FlashCard]
+
+struct IndividualDeck: Decodable{
+    var deckArray: [String: [Cards]]
 }
 
-struct DeckList: Decodable, Encodable {
-    var decks: [DeckOption]
+struct Cards: Decodable{
+    var term: String
+    var definition: String
 }
 
-struct DataData: Decodable, Encodable {
-    var data: DeckList
+extension DataSnapshot {
+    var data: Data? {
+        guard let value = value, !(value is NSNull) else { return nil }
+        return try? JSONSerialization.data(withJSONObject: value)
+    }
+    var json: String? {
+        return data?.string
+    }
+}
+extension Data {
+    var string: String? {
+        return String(data: self, encoding: .utf8)
+    }
 }
 
 class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableViewDataSource {
@@ -37,10 +49,10 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     //database variables
     var ref: DatabaseReference?
     var databaseHandle: DatabaseHandle?
-    var deckDecodable: DataData?
 
     //test dictionary
     let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
+    let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
     var decks: [Deck] = []
     var workingDeckName = ""
 
@@ -56,9 +68,9 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         ref = Database.database().reference()
 
         //adding the decks to the database
-        addDeck(deck: deck)
+        addDeck(deck: deckII)
         
-        ref?.child("Decks").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.observeSingleEvent(of: .value, with: { (snapshot) in
             self.pullDeck(s: snapshot)
         })
         
@@ -75,13 +87,20 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         }
         
         //updates database with the dictionary
-        ref?.child("Decks").childByAutoId().child("Name").setValue(deck.name)
+        ref?.child(deck.name).setValue(dictionary)
         
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
     func pullDeck(s: DataSnapshot){
-        print(ref?.child("Decks").child(s.key as! String))
+        guard let data = s.data else { return }
+        
+        do{
+            let info = try JSONDecoder().decode(IndividualDeck.self, from: data)
+            print(info)
+        }catch let jsonErr{
+            print(jsonErr)
+        }
     }
         
    

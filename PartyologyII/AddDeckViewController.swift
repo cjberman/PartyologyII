@@ -43,14 +43,15 @@ class AddDeckViewController: UIViewController {
 
     func addDeck(deck: Deck){
         var dictionary = Dictionary<String, String>()
-        
+//        decks.append(deck)
+//        
         //creates a dictionary of term:definition
         for i in deck.cards{
             dictionary[i.term] = i.definition
         }
         
         //updates database with the dictionary
-        ref?.child("Decks").childByAutoId().child("Name").setValue(deck.name)
+        ref?.child("Decks").child(deck.name).setValue(dictionary)
         
     }
     

@@ -46,6 +46,9 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         //adding the decks to the database
         addDeck(deck: deck)
         
+        decks.append(deck)
+        decks.append(deckII )
+        
         ref?.child("Decks").observe(.value, with: { (snapshot) in
             self.decks = self.pullDeck(s: snapshot)
         })
@@ -127,6 +130,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         
         if let cell = currentCell?.textLabel?.text{
             workingDeckName = cell
+            print(cell)
         }
         
         performSegue(withIdentifier: "toEditDeck", sender: self)

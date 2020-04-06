@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="2009" y="907"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Deck View Controller-->
         <scene sceneID="fYl-jU-Lk5">
             <objects>
-                <viewController id="xB4-ZZ-bq6" sceneMemberID="viewController">
+                <viewController id="xB4-ZZ-bq6" customClass="EditDeckViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oFs-4Q-vN1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

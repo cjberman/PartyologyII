@@ -42,17 +42,15 @@ class AddDeckViewController: UIViewController {
 
     }
 
+    //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
-        var dictionary = Dictionary<String, String>()
-//        decks.append(deck)
-//        
-        //creates a dictionary of term:definition
-        for i in deck.cards{
-            dictionary[i.term] = i.definition
-        }
-        
         //updates database with the dictionary
-        ref?.child("Decks").child(deck.name).setValue(dictionary)
+        ref?.child("Decks").child(deck.name).child("Cards")
+        
+        //creates a dictionary of term:definition
+        for i in 0..<deck.cards.count{ ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Term").setValue(deck.cards[i].term)
+            ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
+        }
         
     }
     

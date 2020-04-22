@@ -74,10 +74,19 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         
         if let result = s.children.allObjects as? [DataSnapshot] {
             for child in result {
+                print("Entered outer loop")
                 placeHolderDeck.name = child.key
-                print(placeHolderDeck.name)
-                
-               
+                                
+                for i in 0..<s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards").childrenCount{
+                    print("Entered inner loop")
+                    
+                    placeHolderCard.definition = ref?.child("Decks").child(placeHolderDeck.name).child("Cards").child("\(i)").value(forKeyPath: "Definition") as! String
+                    placeHolderCard.term = ref?.child("Decks").child(placeHolderDeck.name).child("Cards").child("\(i)").value(forKey: "Term") as! String
+
+                    
+                    placeHolderDeck.cards.append(placeHolderCard)
+                    print("\(placeHolderCard.term): \(placeHolderCard.definition)")
+                }
             }
         }
 

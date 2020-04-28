@@ -13,7 +13,7 @@ class HeadsUpViewController: UIViewController {
     
     //declarations
     //test deck - will be eventually replaced
-    let deck = Deck([FlashCard("Basketball", "A"), FlashCard("Giraffe", "B"), FlashCard("Skiing", "C"),FlashCard("Handshake", "D") ], "Random Things")
+    var deck = Deck([FlashCard("Basketball", "A"), FlashCard("Giraffe", "B"), FlashCard("Skiing", "C"),FlashCard("Handshake", "D") ], "Random Things")
     //labels & button
     let termLabel = UILabel()
     let pointLabel = UILabel()

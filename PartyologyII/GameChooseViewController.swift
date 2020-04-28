@@ -51,6 +51,13 @@ class GameChooseViewController: UIViewController {
                       headsUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
                       headsUpButton.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
                   }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier=="toHeadsUp"{
+            let controller = segue.destination as! HeadsUpViewController
+            controller.deck = deck
+        }
+    }
                
                @objc func fromHeadsUpButton(){
                     print(deck)

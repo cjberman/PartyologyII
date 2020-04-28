@@ -27,8 +27,8 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     var databaseHandle: DatabaseHandle?
 
     //test dictionary
-    let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
-    let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
+//    let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
+//    let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
     var workingDeckName = ""
     var decks: [Deck] = []
 
@@ -44,15 +44,16 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         ref = Database.database().reference()
 
         //adding the decks to the database
-        addDeck(deck: deck)
-        
-        decks.append(deck)
-        decks.append(deckII )
+//        addDeck(deck: deck)
         
         ref?.child("Decks").observe(.value, with: { (snapshot) in
-            self.decks = self.pullDeck(s: snapshot)
+            self.pullDeck(s: snapshot)
+            print("Decks List")
         })
         
+        for i in decks{
+            print(i.name)
+        }
     }
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
@@ -68,22 +69,18 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck(s: DataSnapshot) -> [Deck]{
-        var placeHolderDeck: Deck = Deck()
-        var placeHolderCard: FlashCard = FlashCard()
+    func pullDeck(s: DataSnapshot){
+        let placeHolderDeck: Deck = Deck()
+        let placeHolderCard: FlashCard = FlashCard()
         
         //For loops to create the decks locally
         if let result = s.children.allObjects as? [DataSnapshot] {
             //Gets the name of the deck
             for child in result {
-                print("Entered outer loop")
                 placeHolderDeck.name = child.key
-                
-                print(placeHolderDeck.name)
-                       
+                                       
                 //inside for loop to create the flashcards to populate the deck
                 for i in 0..<s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards").childrenCount{
-                    print("Entered inner loop")
                        
                     if let definition =
                         s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards/\(String(i))/Definition").value as? String{
@@ -93,18 +90,13 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
                         placeHolderCard.term = term
                     }
 
-                    print("\(placeHolderCard.term): \(placeHolderCard.definition)")
                     placeHolderDeck.cards.append(placeHolderCard)
                 }
                 
-                decks.append(placeHolderDeck)
+                self.decks.append(placeHolderDeck)
+                }
             }
         }
-
-
-        
-        return decks
-    }
         
    
     func setUpAddDeckButton(){

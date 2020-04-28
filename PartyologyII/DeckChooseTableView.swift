@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import FirebaseDatabase
 class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDataSource{
 
 //UI FUNCTIONS AND NON TABLE VARIABLES
@@ -15,7 +16,10 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
     var deckNameLabel = UILabel()
     let enterButton = UIButton()
     var deckk = DeckEditViewController()
-    var deckArray = ["Deck 1", "Deck 2", "Deck 3", "Deck 4", "Deck 5", "Deck 6", "Deck 7", "Deck 8", "Deck 9",]
+    var deckArray = [Deck]()
+    var ref: DatabaseReference?
+    var databaseHandle: DatabaseHandle?
+
     
     @objc func enterBut(){
         
@@ -43,9 +47,21 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
            enterButton.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
        }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let rowPath = tableview.indexPathForSelectedRow?.row else {return}
+        
+        if segue.identifier=="toGameChoose"{
+            let controller = segue.destination as! GameChooseViewController
+            controller.deck = deckArray[rowPath]
+        }
+    }
+    
     @objc func fromEnterButton(){
-                  self.performSegue(withIdentifier: "toGameChoose", sender: self)
-           }
+        performSegue(withIdentifier: "toGameChoose", sender: self)
+        
+    }
+    
     
     func setUpName(){
         //adding to view
@@ -78,7 +94,7 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DeckCell
        // cell.backgroundColor = UIColor.white
-        cell.deckLabel.text = "\(deckArray[indexPath.row])"
+        cell.deckLabel.text = "\(deckArray[indexPath.row].name)"
         return cell
     }
   
@@ -115,8 +131,16 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
     
     //view did load
     override func viewDidLoad() {
+        ref = Database.database().reference()
         super.viewDidLoad()
-        setupTableView()
+        ref?.child("Decks").observe(.value, with: { (snapshot) in
+            for i in self.deckk.pullDeck(s: snapshot){
+                self.deckk.decks.append(i)
+            }
+            self.deckArray=self.deckk.decks
+            self.setupTableView()
+        })
+        
         //setUpName()
         setUpEnter()
     }
@@ -125,6 +149,7 @@ class DeckChooseTableView: UIViewController, UITableViewDelegate,  UITableViewDa
 
 //CELL FUNCTIONS
 class DeckCell: UITableViewCell {
+    
     
     //initializes the cells when called in table i think
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -11,6 +11,8 @@ import UIKit
 //import FirebaseAuth
 
 class GameChooseViewController: UIViewController {
+    
+    var deck = Deck()
 
     let fibbageButton = UIButton()
     let headsUpButton = UIButton()
@@ -51,11 +53,10 @@ class GameChooseViewController: UIViewController {
                   }
                
                @objc func fromHeadsUpButton(){
+                    print(deck)
                       self.performSegue(withIdentifier: "toHeadsUp", sender: self)
                }
                
-    
-    
     
     
     

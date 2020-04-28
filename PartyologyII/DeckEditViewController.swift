@@ -27,8 +27,6 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     var databaseHandle: DatabaseHandle?
 
     //test dictionary
-//    let deck = Deck([FlashCard("Letter", "A"), FlashCard("Number", "10"), FlashCard("Space", "_"), FlashCard("Name", "Charlie"), FlashCard("App", "Partyology")], "Random Things")
-//    let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
     var workingDeckName = ""
     var decks: [Deck] = []
     
@@ -37,7 +35,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         super.viewDidLoad()
     
         setUpAddDeckButton()
-        setupDeckList()
+        
         
         //creating refrence object
         ref = Database.database().reference()
@@ -49,6 +47,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
             for i in self.pullDeck(s: snapshot){
                 self.decks.append(i)
             }
+            self.setupDeckList()
         })
 
         

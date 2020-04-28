@@ -72,21 +72,32 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         var placeHolderDeck: Deck = Deck()
         var placeHolderCard: FlashCard = FlashCard()
         
+        //For loops to create the decks locally
         if let result = s.children.allObjects as? [DataSnapshot] {
+            //Gets the name of the deck
             for child in result {
                 print("Entered outer loop")
                 placeHolderDeck.name = child.key
-                                
+                
+                print(placeHolderDeck.name)
+                       
+                //inside for loop to create the flashcards to populate the deck
                 for i in 0..<s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards").childrenCount{
                     print("Entered inner loop")
-                    
-                    placeHolderCard.definition = ref?.child("Decks").child(placeHolderDeck.name).child("Cards").child("\(i)").value(forKeyPath: "Definition") as! String
-                    placeHolderCard.term = ref?.child("Decks").child(placeHolderDeck.name).child("Cards").child("\(i)").value(forKey: "Term") as! String
+                       
+                    if let definition =
+                        s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards/\(String(i))/Definition").value as? String{
+                        placeHolderCard.definition = definition
+                    }
+                    if let term = s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards/\(String(i))/Term").value as? String{
+                        placeHolderCard.term = term
+                    }
 
-                    
-                    placeHolderDeck.cards.append(placeHolderCard)
                     print("\(placeHolderCard.term): \(placeHolderCard.definition)")
+                    placeHolderDeck.cards.append(placeHolderCard)
                 }
+                
+                decks.append(placeHolderDeck)
             }
         }
 

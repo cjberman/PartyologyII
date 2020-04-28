@@ -31,8 +31,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
 //    let deckII = Deck([FlashCard("Letter", "B"), FlashCard("Number", "8"), FlashCard("Tab", "____"), FlashCard("Name", "Bob"), FlashCard("App", "Partyology")], "More Random Things")
     var workingDeckName = ""
     var decks: [Deck] = []
-
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +46,12 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
 //        addDeck(deck: deck)
         
         ref?.child("Decks").observe(.value, with: { (snapshot) in
-            self.pullDeck(s: snapshot)
-            print("Decks List")
+            for i in self.pullDeck(s: snapshot){
+                self.decks.append(i)
+            }
         })
+
         
-        for i in decks{
-            print(i.name)
-        }
     }
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
@@ -69,19 +67,19 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     }
     
     //pulls all the cards in a deck when updated (so if a change occurs to any deck, will reupdate I think), returns a deck
-    func pullDeck(s: DataSnapshot){
-        let placeHolderDeck: Deck = Deck()
-        let placeHolderCard: FlashCard = FlashCard()
+    func pullDeck(s: DataSnapshot) -> [Deck]{
+        var decksII: [Deck] = []
         
         //For loops to create the decks locally
         if let result = s.children.allObjects as? [DataSnapshot] {
             //Gets the name of the deck
             for child in result {
+                let placeHolderDeck: Deck = Deck()
                 placeHolderDeck.name = child.key
-                                       
                 //inside for loop to create the flashcards to populate the deck
                 for i in 0..<s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards").childrenCount{
-                       
+                    let placeHolderCard: FlashCard = FlashCard()
+
                     if let definition =
                         s.childSnapshot(forPath: "\(placeHolderDeck.name)/Cards/\(String(i))/Definition").value as? String{
                         placeHolderCard.definition = definition
@@ -91,12 +89,14 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
                     }
 
                     placeHolderDeck.cards.append(placeHolderCard)
+
                 }
-                
-                self.decks.append(placeHolderDeck)
-                }
+                decksII.append(placeHolderDeck)
             }
         }
+        
+        return decksII
+    }
         
    
     func setUpAddDeckButton(){

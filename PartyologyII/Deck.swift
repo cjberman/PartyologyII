@@ -20,7 +20,7 @@ class Deck{
     
     init(){
         cards = [FlashCard]()
-        name = " "
+        name = "Default Name"
     }
     
     func getRandomCard() -> FlashCard?{

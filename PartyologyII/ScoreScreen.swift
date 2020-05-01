@@ -21,7 +21,7 @@ class ScoreScreen: UIViewController, UITableViewDelegate,  UITableViewDataSource
         //setting up properties
         header.text = "Scores:"
         header.textColor = UIColor.black
-        header.font = UIFont(name: "Helvetica Neue", size: 75)
+        header.font = UIFont(name: "CourierNewPSMT", size: 75)
         header.adjustsFontSizeToFitWidth = true
         
         //constraints
@@ -122,7 +122,7 @@ class ScoreCell: UITableViewCell {
     //Cell background properties
     let cellView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.purple
+        view.backgroundColor = UIColor.black
         //corner radius is the rounding edges thing that looks nice for future reference
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -133,8 +133,23 @@ class ScoreCell: UITableViewCell {
     let termLabel: UILabel = {
         let label = UILabel()
         label.text = "Buhhhh"
-        label.textColor = UIColor.white
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+                var num = Int.random(in: 1...5)
+        if(num == 1){
+                label.textColor = UIColor.blue
+        }
+        else if(num == 2){
+            label.textColor = UIColor.red
+        }
+        else if(num == 3){
+            label.textColor = UIColor.yellow
+        }
+        else if(num == 4){
+            label.textColor = UIColor.green
+        }
+        else{
+            label.textColor = UIColor.orange
+        }
+        label.font = UIFont(name: "CourierNewPSMT", size: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

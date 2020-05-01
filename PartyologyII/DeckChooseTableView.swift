@@ -170,7 +170,7 @@ class DeckCell: UITableViewCell {
         ])
         
         deckLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        deckLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        deckLabel.widthAnchor.constraint(equalToConstant: 400).isActive = true
         deckLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         deckLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true
         
@@ -206,7 +206,6 @@ class DeckCell: UITableViewCell {
             label.textColor = UIColor.white
         }
         
-        //label.textColor = UIColor.blue
         label.font = UIFont(name: "CourierNewPSMT", size: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

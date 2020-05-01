@@ -69,10 +69,10 @@ class FibbageViewController: UIViewController {
         
         //setting up properties
         definitionLabel.layer.cornerRadius = 30
-        definitionLabel.layer.backgroundColor = UIColor.orange.cgColor
+        definitionLabel.layer.backgroundColor = UIColor.black.cgColor
         definitionLabel.text = "\(placeholderDefinition)"
         definitionLabel.textColor = UIColor.white
-        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
+        definitionLabel.font = UIFont(name: "CourierNewPSMT", size: 20)
         definitionLabel.adjustsFontSizeToFitWidth = true
       
         
@@ -94,7 +94,7 @@ class FibbageViewController: UIViewController {
         //setting up properties
         playerCounter.text = "Player \(playerCount)"
         playerCounter.textColor = UIColor.red
-        playerCounter.font = UIFont(name: "Helvetica Neue", size: 30)
+        playerCounter.font = UIFont(name: "CourierNewPSMT", size: 30)
         playerCounter.adjustsFontSizeToFitWidth = true
         
         //constraints
@@ -110,7 +110,7 @@ class FibbageViewController: UIViewController {
         //setting up properties
         falseTermField.placeholder = "Enter False Term"
         falseTermField.textColor = UIColor.lightGray
-        falseTermField.font = UIFont(name: "Helvetica Neue", size: 30)
+        falseTermField.font = UIFont(name: "CourierNewPSMT", size: 30)
         falseTermField.adjustsFontSizeToFitWidth = true
         falseTermField.keyboardType = UIKeyboardType.alphabet
         
@@ -125,10 +125,10 @@ class FibbageViewController: UIViewController {
         
         //setting up properties
         enter.setTitle("  Enter  ", for: .normal)
-        enter.setTitleColor(UIColor.white, for: .normal)
-        enter.backgroundColor = UIColor.red
+        enter.setTitleColor(UIColor.red, for: .normal)
+        enter.backgroundColor = UIColor.black
         enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
-        enter.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        enter.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         enter.layer.cornerRadius = 20
         
         //constraints

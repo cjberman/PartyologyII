@@ -105,9 +105,9 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         //setting up properties
         addDeckButton.setTitle("Add Deck", for: .normal)
         addDeckButton.setTitleColor(UIColor.lightGray, for: .normal)
-        addDeckButton.backgroundColor = UIColor.blue
+        addDeckButton.backgroundColor = UIColor.black
         addDeckButton.addTarget(self, action: #selector(addDeckSegue), for: .touchUpInside)
-        addDeckButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        addDeckButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         addDeckButton.translatesAutoresizingMaskIntoConstraints = false

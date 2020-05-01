@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
         //setting up properties
         emailAddress.placeholder = "Email Address"
         emailAddress.textColor = UIColor.lightGray
-        emailAddress.font = UIFont(name: "Helvetica Neue", size: 30)
+        emailAddress.font = UIFont(name: "CourierNewPSMT", size: 30)
         emailAddress.adjustsFontSizeToFitWidth = true
         emailAddress.keyboardType = UIKeyboardType.emailAddress
         
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         //setting up properties
         username.placeholder = "Username"
         username.textColor = UIColor.lightGray
-        username.font = UIFont(name: "Helvetica Neue", size: 30)
+        username.font = UIFont(name: "CourierNewPSMT", size: 30)
         username.adjustsFontSizeToFitWidth = true
         
         //constraints
@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController {
         //setting up properties
         password.placeholder = "Password"
         password.textColor = UIColor.lightGray
-        password.font = UIFont(name: "Helvetica Neue", size: 30)
+        password.font = UIFont(name: "CourierNewPSMT", size: 30)
         password.adjustsFontSizeToFitWidth = true
         password.isSecureTextEntry = true
             
@@ -77,7 +77,7 @@ class SignUpViewController: UIViewController {
         signUp.setTitleColor(UIColor.lightGray, for: .normal)
         signUp.backgroundColor = UIColor.blue
         signUp.addTarget(self, action: #selector(signUpButton), for: .touchUpInside)
-        signUp.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        signUp.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         signUp.translatesAutoresizingMaskIntoConstraints = false

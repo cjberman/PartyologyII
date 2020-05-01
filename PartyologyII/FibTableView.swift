@@ -29,8 +29,8 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         
         //setting up properties
         playerCounter.text = "Player \(playerCount)"
-        playerCounter.textColor = UIColor.red
-        playerCounter.font = UIFont(name: "Helvetica Neue", size: 30)
+        playerCounter.textColor = UIColor.black
+        playerCounter.font = UIFont(name: "CourierNewPSMT", size: 30)
         playerCounter.adjustsFontSizeToFitWidth = true
         
         //constraints
@@ -88,10 +88,10 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         
         //setting up properties
         enter.setTitle("  Enter  ", for: .normal)
-        enter.setTitleColor(UIColor.white, for: .normal)
+        
         enter.backgroundColor = UIColor.blue
         enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
-        enter.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        enter.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         enter.layer.cornerRadius = 20
         
         //constraints
@@ -108,7 +108,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         //setting up properties
         definitionLabel.text = "\(definition)"
         definitionLabel.textColor = UIColor.black
-        definitionLabel.font = UIFont(name: "Helvetica Neue", size: 20)
+        definitionLabel.font = UIFont(name: "CourierNewPSMT", size: 20)
         definitionLabel.adjustsFontSizeToFitWidth = true
         
         //constraints
@@ -137,6 +137,25 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! TermCell
         cell.backgroundColor = UIColor.white
         cell.termLabel.text = "\(termArray[indexPath.row].text)"
+        cell.termLabel.font = UIFont(name: "CourierNewPSMT", size: 30)
+        
+        var num = Int.random(in: 1...5)
+        if(num == 1){
+            cell.termLabel.textColor = UIColor.yellow
+        }
+        else if(num == 2){
+            cell.termLabel.textColor = UIColor.green
+        }
+        else if(num == 3){
+            cell.termLabel.textColor = UIColor.orange
+        }
+        else if(num == 4){
+            cell.termLabel.textColor = UIColor.red
+        }
+        else{
+            cell.termLabel.textColor = UIColor.blue
+        }
+        
         cell.playerKey=termArray[indexPath.row].player
         return cell
     }
@@ -221,7 +240,7 @@ class TermCell: UITableViewCell {
     //Cell background properties
     let cellView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.black
         //corner radius is the rounding edges thing that looks nice for future reference
         view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false

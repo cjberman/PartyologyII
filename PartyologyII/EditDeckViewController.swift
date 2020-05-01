@@ -39,7 +39,7 @@ class EditDeckViewController: UIViewController {
             //setting up properties
             editDeckName.placeholder = "Change Deck Name"
             editDeckName.textColor = UIColor.lightGray
-            editDeckName.font = UIFont(name: "Helvetica Neue", size: 30)
+            editDeckName.font = UIFont(name: "CourierNewPSMT", size: 30)
             editDeckName.adjustsFontSizeToFitWidth = true
     //        deckName.textFieldStyle(RoundedBorderTextFieldStyle())
                 

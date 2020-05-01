@@ -61,7 +61,7 @@ class AddDeckViewController: UIViewController {
         //setting up properties
         deckName.placeholder = "Enter Deck Name"
         deckName.textColor = UIColor.lightGray
-        deckName.font = UIFont(name: "Helvetica Neue", size: 30)
+        deckName.font = UIFont(name: "CourierNewPSMT", size: 30)
         deckName.adjustsFontSizeToFitWidth = true
 //        deckName.textFieldStyle(RoundedBorderTextFieldStyle())
             
@@ -78,7 +78,7 @@ class AddDeckViewController: UIViewController {
         //setting up properties
         cardTerm.placeholder = "Term"
         cardTerm.textColor = UIColor.lightGray
-        cardTerm.font = UIFont(name: "Helvetica Neue", size: 30)
+        cardTerm.font = UIFont(name: "CourierNewPSMT", size: 30)
         cardTerm.adjustsFontSizeToFitWidth = true
 //        cardTerm.textFieldStyle(RoundedBorderTextFieldStyle())
             
@@ -95,7 +95,7 @@ class AddDeckViewController: UIViewController {
         //setting up properties
         cardDefinition.placeholder = "Definition"
         cardDefinition.textColor = UIColor.lightGray
-        cardDefinition.font = UIFont(name: "Helvetica Neue", size: 30)
+        cardDefinition.font = UIFont(name: "CourierNewPSMT", size: 30)
         cardDefinition.adjustsFontSizeToFitWidth = true
 //        cardDefinition.textFieldStyle(RoundedBorderTextFieldStyle())
             
@@ -112,9 +112,9 @@ class AddDeckViewController: UIViewController {
         //setting up properties
         addCard.setTitle("Add Card", for: .normal)
         addCard.setTitleColor(UIColor.lightGray, for: .normal)
-        addCard.backgroundColor = UIColor.blue
+        addCard.backgroundColor = UIColor.black
         addCard.addTarget(self, action: #selector(addCardSelector), for: .touchUpInside)
-        addCard.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        addCard.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         addCard.translatesAutoresizingMaskIntoConstraints = false
@@ -150,9 +150,9 @@ class AddDeckViewController: UIViewController {
         //setting up properties
         deckComplete.setTitle("Done", for: .normal)
         deckComplete.setTitleColor(UIColor.lightGray, for: .normal)
-        deckComplete.backgroundColor = UIColor.blue
+        deckComplete.backgroundColor = UIColor.black
         deckComplete.addTarget(self, action: #selector(deckCompleteSelector), for: .touchUpInside)
-        deckComplete.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 30)
+        deckComplete.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         deckComplete.translatesAutoresizingMaskIntoConstraints = false

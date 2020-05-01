@@ -43,7 +43,7 @@ class HeadsUpViewController: UIViewController {
         setUpTermLabel()
         setUpPointLabel()
         setUpTimeLabel()
-        setUpExitButton()
+        //setUpExitButton()
         
         view.backgroundColor = UIColor.white
         
@@ -90,7 +90,7 @@ class HeadsUpViewController: UIViewController {
             termLabel.text = "error: deck contains null values"
         }
         termLabel.textColor = UIColor.black
-        termLabel.font = UIFont(name: "Helvetica Neue", size: 64)
+        termLabel.font = UIFont(name: "CourierNewPSMT", size: 64)
         
         //constraints
         termLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -106,7 +106,7 @@ class HeadsUpViewController: UIViewController {
         //setting up properties
         pointLabel.text = "\(points)"
         pointLabel.textColor = UIColor.black
-        pointLabel.font = UIFont(name: "Helvetica Neue", size: 64)
+        pointLabel.font = UIFont(name: "CourierNewPSMT", size: 64)
         
         //constraints
         pointLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +121,7 @@ class HeadsUpViewController: UIViewController {
         //setting up properties
         timeLabel.text = "60"
         timeLabel.textColor = UIColor.black
-        timeLabel.font = UIFont(name: "Helvetica Neue", size: 64)
+        timeLabel.font = UIFont(name: "CourierNewPSMT", size: 64)
         
         //constraints
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -129,26 +129,26 @@ class HeadsUpViewController: UIViewController {
         timeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
     }
     
-    func setUpExitButton(){
-        //adding to view
-        view.addSubview(exitButton)
-        
-        //setting up properties
-        exitButton.setTitle("X", for: .normal)
-        exitButton.setTitleColor(UIColor.black, for: .normal)
-        exitButton.addTarget(self, action: #selector(exit), for: .touchUpInside)
-        exitButton.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 64)
-        
-        //constraints
-        exitButton.translatesAutoresizingMaskIntoConstraints = false
-        exitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        exitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-    }
-    
-    //called when exitButton is pressed
-    @objc func exit(){
-        //segue here
-    }
+//    func setUpExitButton(){
+//        //adding to view
+//        view.addSubview(exitButton)
+//
+//        //setting up properties
+//        exitButton.setTitle("X", for: .normal)
+//        exitButton.setTitleColor(UIColor.black, for: .normal)
+//        exitButton.addTarget(self, action: #selector(exit), for: .touchUpInside)
+//        exitButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 64)
+//
+//        //constraints
+//        exitButton.translatesAutoresizingMaskIntoConstraints = false
+//        exitButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//        exitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+//    }
+//
+//    //called when exitButton is pressed
+//    @objc func exit(){
+//        //segue here
+//    }
     
     func accelerometer(_ animated: Bool){
         

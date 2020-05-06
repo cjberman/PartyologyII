@@ -17,13 +17,18 @@ class GameChooseViewController: UIViewController {
     let fibbageButton = UIButton()
     let headsUpButton = UIButton()
     
+    func assignbackground(){
+
+          view.backgroundColor = UIColor.black
+
+     }
     
     func setUpFibbageButton(){
                 view.addSubview(fibbageButton)
                
                fibbageButton.setTitle("Fibbage", for: .normal)
-                fibbageButton.setTitleColor(UIColor.red, for: .normal)
-               fibbageButton.backgroundColor = UIColor.black
+                fibbageButton.setTitleColor(UIColor.black, for: .normal)
+               fibbageButton.backgroundColor = UIColor.red
                fibbageButton.addTarget(self, action: #selector(fromFibbageButton), for: .touchUpInside)
                fibbageButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
                
@@ -41,12 +46,12 @@ class GameChooseViewController: UIViewController {
                        view.addSubview(headsUpButton)
                       
                       headsUpButton.setTitle("Heads Up", for: .normal)
-                       headsUpButton.setTitleColor(UIColor.green, for: .normal)
-                      headsUpButton.backgroundColor = UIColor.black
+                       headsUpButton.setTitleColor(UIColor.black, for: .normal)
+                    headsUpButton.backgroundColor = UIColor.blue
                       headsUpButton.addTarget(self, action: #selector(fromHeadsUpButton), for: .touchUpInside)
                       headsUpButton.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
                       
-                      //constraints
+                      //constraints b
                       headsUpButton.translatesAutoresizingMaskIntoConstraints = false
                       headsUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
                       headsUpButton.centerYAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
@@ -77,6 +82,7 @@ class GameChooseViewController: UIViewController {
        override func viewDidLoad() {
             super.viewDidLoad()
             firstResponder()
+            assignbackground()
             setUpFibbageButton()
             setUpHeadsUpButton()
        }

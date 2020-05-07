@@ -62,6 +62,10 @@ class GameChooseViewController: UIViewController {
             let controller = segue.destination as! HeadsUpViewController
             controller.deck = deck
         }
+        else if segue.identifier=="toFibbage"{
+            let controller = segue.destination as! FibbageViewController
+            controller.deck = deck
+        }
     }
                
                @objc func fromHeadsUpButton(){

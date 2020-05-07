@@ -144,7 +144,7 @@ class FibbageViewController: UIViewController {
             termsArray.append(newTerm)
             let vc = FibTableView(nibName: "FibTableView", bundle: nil)
             vc.termArray = termsArray
-            vc.scores = scores
+            //vc.scores = scores
             print(vc.termArray)
             falseTermField.text = ""
             
@@ -173,6 +173,8 @@ class FibbageViewController: UIViewController {
             let controller = segue.destination as! FibTableView
             controller.termArray = termsArray
             controller.definition = placeholderDefinition
+            controller.deck = deck
+            controller.scores=scores
 
         }
     }

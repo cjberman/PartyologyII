@@ -14,23 +14,28 @@ class HomeScreenViewController: UIViewController {
     let deckEdit = UIButton()
     let deckChoose = UIButton()
     let titleLabel = UILabel()
-    let background = UIImage(named: "arcadeScreen.jpg")
-    
+    let background = UIImage(named: "Controllerrr.png")
+  
     func assignbackground(){
-
-        view.backgroundColor = UIColor.white
+        
+        view.backgroundColor = UIColor.black
 
         
-//        as of right now, I think the arcde background does not look good, so I'm just rolling with white, but we might wanna change it later
+//        Changed the background to black and added an neon controller png to fit the aesthetic.
         
-//        var imageView : UIImageView!
-//        imageView = UIImageView(frame: view.bounds)
-//        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-//        imageView.clipsToBounds = true
-//        imageView.image = background
-//        imageView.center = view.center
-//        view.addSubview(imageView)
-//        self.view.sendSubviewToBack(imageView)
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView.image = background
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+       
+        imageView.frame.size.width = 200
+        imageView.frame.size.height = 200
+        imageView.center = self.view.center
+        view.addSubview(imageView)
+               self.view.sendSubviewToBack(imageView)
    }
     
     
@@ -40,13 +45,13 @@ class HomeScreenViewController: UIViewController {
         
         //setting up properties
         titleLabel.text = "PARTYOLOGY"
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor.green
         titleLabel.font = UIFont(name: "CourierNewPSMT", size: 64)
         
         //constraints
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 300).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
     }
     
     func setUpDeckEdit(){
@@ -61,8 +66,13 @@ class HomeScreenViewController: UIViewController {
         
         //constraints
         deckEdit.translatesAutoresizingMaskIntoConstraints = false
+//Updated upstream
         deckEdit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         deckEdit.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+
+        deckEdit.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60).isActive = true
+        deckEdit.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -600).isActive = true
+//Stashed changes
     }
     
     @objc func deckEditButton(){

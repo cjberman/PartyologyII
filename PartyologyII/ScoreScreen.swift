@@ -12,6 +12,8 @@ import Foundation
 class ScoreScreen: UIViewController, UITableViewDelegate,  UITableViewDataSource{
     let header = UILabel()
     var scores = [Int:Int]()
+    let enter = UIButton()
+    var deck = Deck()
     
     
     func setUpHeader(){
@@ -33,6 +35,37 @@ class ScoreScreen: UIViewController, UITableViewDelegate,  UITableViewDataSource
         header.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+    }
+    
+    func setUpEnter(){
+        //adding to view
+        view.addSubview(enter)
+        
+        //setting up properties
+        enter.setTitle("  Enter  ", for: .normal)
+        
+        enter.backgroundColor = UIColor.blue
+        enter.addTarget(self, action: #selector(enterButton), for: .touchUpInside)
+        enter.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+        enter.layer.cornerRadius = 20
+        
+        //constraints
+        enter.translatesAutoresizingMaskIntoConstraints = false
+        enter.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        enter.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+    }
+    
+    @objc func enterButton(){
+        
+        performSegue(withIdentifier: "backToFibbage", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToFibbage" {
+            let controller = segue.destination as! FibbageViewController
+            controller.scores = scores
+            controller.deck = deck
+        }
     }
 
 //TABLE STUFF
@@ -83,6 +116,7 @@ class ScoreScreen: UIViewController, UITableViewDelegate,  UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setUpEnter()
         setUpHeader()
         print(scores)
     }

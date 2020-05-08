@@ -41,9 +41,9 @@ class term {
 class FibbageViewController: UIViewController {
     //buhhhh
     //text field for player to enter term, button to enter, placeholder array to hold terms, placeholder definition and term for before flashcards, placeholder player count [very bad please fix delete later (maybe not tho, the best way to pass this info might be instantiating new values in placeholder variables from another class)]
-    
-    let placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
-    let placeholderTerm = term(text:"Krebs Cycle",player:0)
+    var deck = Deck([FlashCard("Basketball", "A"), FlashCard("Giraffe", "B"), FlashCard("Skiing", "C"),FlashCard("Handshake", "D") ], "Random Things")
+    var placeholderDefinition = "A series of chemical reactions used by all aerobic organisms to release stored energy through the oxidation of acetyl-CoA derived from carbohydrates, fats, and proteins, into adenosine triphosphate and carbon dioxide"
+    var placeholderTerm = term(text:"Krebs Cycle",player:0)
     var termsArray : [term] = []
     var scores:[Int:Int]=[1:0,2:0,3:0]
 
@@ -144,7 +144,7 @@ class FibbageViewController: UIViewController {
             termsArray.append(newTerm)
             let vc = FibTableView(nibName: "FibTableView", bundle: nil)
             vc.termArray = termsArray
-            vc.scores = scores
+            //vc.scores = scores
             print(vc.termArray)
             falseTermField.text = ""
             
@@ -173,11 +173,21 @@ class FibbageViewController: UIViewController {
             let controller = segue.destination as! FibTableView
             controller.termArray = termsArray
             controller.definition = placeholderDefinition
+            controller.deck = deck
+            controller.scores=scores
 
         }
     }
 
     override func viewDidLoad() {
+        print(deck.cards.count)
+        if let card=deck.getRandomCard(){
+            placeholderDefinition = card.definition
+            print("definition \(card.definition)")
+            placeholderTerm.text=card.term
+            print("term \(card.term)")
+        }
+
         super.viewDidLoad()
         setUpEnter()
         setUpFalseTermField()

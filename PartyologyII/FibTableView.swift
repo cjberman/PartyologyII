@@ -18,6 +18,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     var playerCounter = UILabel()
     var playerCount = 1
     let enter = UIButton()
+    var deck=Deck()
     
     //This is an instance of the first view controller, NOT THE ACTUAL THING
     //I WILL NEED TO GO BACK AND EITHER PASS WHATS IN THIS BACK OR PUSH THE DATA FROM IT TO THE END SCREEN
@@ -53,15 +54,17 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
     //IT CURRENTLY JUST MAPS THE VALUE IN THE INSTANCE TO A DICTIONARY IN THIS CLASS
         //If player chooses the correct answer
         if(cell.playerKey==0){
-            guard let currentPlayerScore = vc.scores[playerCount] else {return}
-            vc.updateScores(key: playerCount, value: currentPlayerScore+2)
+            guard let currentPlayerScore = scores[playerCount] else {return}
+            //vc.updateScores(key: playerCount, value: currentPlayerScore+2)
+            scores[playerCount] = currentPlayerScore+2
         }
         //If player chooses a false answer
         else{
-            guard let currentPlayerScore = vc.scores[cell.playerKey] else {return}
-            vc.updateScores(key: cell.playerKey, value: currentPlayerScore+1)
+            guard let currentPlayerScore = scores[cell.playerKey] else {return}
+            //vc.updateScores(key: cell.playerKey, value: currentPlayerScore+1)
+            scores[cell.playerKey] = currentPlayerScore+1
         }
-        scores = vc.scores
+        //scores = vc.scores
 
         //updates player count, segues if limit is met
         playerCount = playerCount+1
@@ -79,6 +82,7 @@ class FibTableView: UIViewController, UITableViewDelegate,  UITableViewDataSourc
         if segue.identifier == "toScoreScreen" {
             let controller = segue.destination as! ScoreScreen
             controller.scores = scores
+            controller.deck = deck
         }
     }
     

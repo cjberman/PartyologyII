@@ -87,7 +87,7 @@
             <objects>
                 <viewController id="AJ8-L8-DmK" customClass="FibbageViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xil-O6-tuq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="esr-aH-EYS"/>
@@ -132,11 +132,12 @@
                     </view>
                     <connections>
                         <segue destination="AJ8-L8-DmK" kind="presentation" identifier="backToFibbage" modalPresentationStyle="overFullScreen" id="NDn-O2-Mfk"/>
+                        <segue destination="VLb-73-pVH" kind="presentation" identifier="fibExit" modalPresentationStyle="overFullScreen" id="r3F-I7-XVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSa-l7-Rns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6022" y="146"/>
+            <point key="canvasLocation" x="6022" y="183"/>
         </scene>
         <!--Deck Edit View Controller-->
         <scene sceneID="YCC-Od-zew">
@@ -195,8 +196,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MNu-DD-hZi"/>
-        <segue reference="4nH-tD-60h"/>
-        <segue reference="nuh-KL-C4o"/>
+        <segue reference="XcP-SE-aa9"/>
+        <segue reference="NDn-O2-Mfk"/>
     </inferredMetricsTieBreakers>
 </document>

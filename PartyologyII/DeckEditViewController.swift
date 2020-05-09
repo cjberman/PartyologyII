@@ -33,7 +33,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         setUpAddDeckButton()
         
         
@@ -44,6 +44,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
 //        addDeck(deck: deck)
         
         ref?.child("Decks").observe(.value, with: { (snapshot) in
+            self.decks.removeAll()
             for i in self.pullDeck(s: snapshot){
                 self.decks.append(i)
             }
@@ -135,20 +136,25 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         return 100
     }
     
+    //code that runs when a cell is clicked on
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentCell = tableView.cellForRow(at: indexPath) as? DeckCell
         
-        if let cell = currentCell?.deckLabel{
+        //finds deck that corresponds with label
+        if let cell = currentCell?.deckLabel.text{
             for i in decks{
-                if cell.text == i.name{
+                if cell == i.name{
                     workingDeck = i
                 }
             }
         }
         
+        //goes to EditDeck
         performSegue(withIdentifier: "toEditDeck", sender: self)
+        print("Moving to edit deck")
     }
     
+    //sends the deck clicked on over to the EditDeckView Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEditDeck" {
             let controller = segue.destination as! EditDeckViewController

@@ -170,10 +170,33 @@
                         <viewLayoutGuide key="safeArea" id="9a0-m1-Pah"/>
                     </view>
                     <navigationItem key="navigationItem" id="N2m-So-Npa"/>
+                    <connections>
+                        <segue destination="TOu-0B-Glu" kind="show" identifier="backToDeckEdit" id="UGU-5R-PFK"/>
+                        <segue destination="Qbp-Zx-ab0" kind="show" identifier="toEditFlashcard" id="o7u-1d-EP9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzc-DC-DjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="562"/>
+            <point key="canvasLocation" x="2841" y="555"/>
+        </scene>
+        <!--Edit Flashcard View Controller-->
+        <scene sceneID="lUa-Uo-HWI">
+            <objects>
+                <viewController id="Qbp-Zx-ab0" customClass="EditFlashcardViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tyH-0y-LlH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="S1A-IH-U7M"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="COd-Lv-6ZO"/>
+                    <connections>
+                        <segue destination="xB4-ZZ-bq6" kind="show" identifier="backToEditDeck" id="LQo-f4-0gp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4S-uc-7Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3810" y="907"/>
         </scene>
         <!--Add Deck View Controller-->
         <scene sceneID="K6l-ss-Hj0">
@@ -196,7 +219,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XcP-SE-aa9"/>
+        <segue reference="LQo-f4-0gp"/>
+        <segue reference="UGU-5R-PFK"/>
         <segue reference="NDn-O2-Mfk"/>
     </inferredMetricsTieBreakers>
 </document>

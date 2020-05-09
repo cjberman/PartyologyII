@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class EditDeckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let editDeckName = UITextField()
     var masterDeck = Deck()
+    let update = UIButton()
+    let addCard = UIButton()
+    var ref: DatabaseReference?
+    var flashcardChosen = FlashCard()
+
     
     let deckList: UITableView = {
            let tv = UITableView()
@@ -21,13 +27,24 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
            return tv
        }()
     
+//    let tableview: UITableView = {
+//        let tv = UITableView()
+//        tv.backgroundColor = UIColor.black
+//        tv.separatorColor = UIColor.white
+//        tv.translatesAutoresizingMaskIntoConstraints = false
+//        return tv
+//    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
         
         setUpDeckName()
-        setupDeckList()
+        setupDeckLists()
+        setUpButton()
+        setUpButtonFlashcard()
 
     }
     
@@ -48,7 +65,56 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
             editDeckName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         }
     
-    func setupDeckList() {
+    func setUpButtonFlashcard(){
+            //adding to view
+        view.addSubview(addCard)
+            
+            //setting up properties
+        addCard.setTitle("Add Card", for: .normal)
+        addCard.setTitleColor(UIColor.lightGray, for: .normal)
+        addCard.backgroundColor = UIColor.purple
+        addCard.addTarget(self, action: #selector(editDeckSegue), for: .touchUpInside)
+        addCard.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+        
+        //constraints
+        addCard.translatesAutoresizingMaskIntoConstraints = false
+        addCard.centerXAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
+        addCard.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: -30).isActive = true
+        }
+    
+    func setUpButton(){
+            //adding to view
+        view.addSubview(update)
+            
+            //setting up properties
+        update.setTitle("Update", for: .normal)
+        update.setTitleColor(UIColor.lightGray, for: .normal)
+        update.backgroundColor = UIColor.blue
+        update.addTarget(self, action: #selector(toEditDeckSegueButDifferent), for: .touchUpInside)
+        update.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
+        
+        //constraints
+        update.translatesAutoresizingMaskIntoConstraints = false
+        update.centerXAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
+        update.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: -30).isActive = true
+        }
+        
+    @objc func toEditDeckSegueButDifferent(){
+        self.performSegue(withIdentifier: "toEditFlashcard", sender: self)
+        
+    }
+    
+    @objc func editDeckSegue(){
+        self.performSegue(withIdentifier: "backToDeckEdit", sender: self)
+        if let newName = editDeckName.text{
+            ref?.child("Decks").child(masterDeck.name).removeValue()
+            masterDeck.name = newName
+            addDeck(deck: masterDeck)
+        }
+    }
+    
+    
+    func setupDeckLists() {
         //register is really important
         deckList.delegate = self
         deckList.dataSource = self
@@ -65,6 +131,15 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
         ])
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = deckList.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DeckCell
+             // cell.backgroundColor = UIColor.white
+        cell.deckLabel.text = "\(masterDeck.cards[indexPath.row].term): \(masterDeck.cards[indexPath.row].definition)"
+        cell.deckLabel.adjustsFontSizeToFitWidth = true
+             
+             return cell
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return 100
        }
@@ -73,18 +148,45 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
             return masterDeck.cards.count
        }
     
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! DeckCell
-          // cell.backgroundColor = UIColor.white
-           cell.deckLabel.text = "\(masterDeck.cards[indexPath.row])"
-           return cell
-       }
-     
-       let tableview: UITableView = {
-           let tv = UITableView()
-           tv.backgroundColor = UIColor.black
-           tv.separatorColor = UIColor.white
-           tv.translatesAutoresizingMaskIntoConstraints = false
-           return tv
-       }()
+    //code that runs when a cell is clicked on
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath) as? DeckCell
+        
+        //finds deck that corresponds with label
+        if let cell = currentCell?.deckLabel.text{
+            for i in masterDeck.cards{
+                if cell == "\(i.term): \(i.definition)"{
+                    flashcardChosen = i
+                }
+            }
+        }
+        
+        //goes to EditDeck
+        performSegue(withIdentifier: "toEditFlashcard", sender: self)
+    }
+    
+    //sends the deck clicked on over to the EditDeckView Controller
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditFlashcard" {
+            let controller = segue.destination as! EditFlashcardViewController
+            controller.masterFlashcard = flashcardChosen
+            controller.theDeckOfTruth = masterDeck
+        }
+    }
+    
+    
+    
+    
+    
+    //use to add a deck to the database (takes a deck parameter so make the deck first)
+    func addDeck(deck: Deck){
+        //updates database with the dictionary
+        ref?.child("Decks").child(deck.name).child("Cards")
+        
+        //creates a dictionary of term:definition
+        for i in 0..<deck.cards.count{ ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Term").setValue(deck.cards[i].term)
+            ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
+        }
+        
+    }
 }

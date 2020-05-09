@@ -27,7 +27,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     var databaseHandle: DatabaseHandle?
 
     //test dictionary
-    var workingDeckName = ""
+    var workingDeck = Deck()
     var decks: [Deck] = []
     
     
@@ -136,15 +136,24 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let indexPath = tableView.indexPathForSelectedRow
-        let currentCell = tableView.cellForRow(at: indexPath!) as? UITableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath) as? DeckCell
         
-        if let cell = currentCell?.textLabel?.text{
-            workingDeckName = cell
-            print(cell)
+        if let cell = currentCell?.deckLabel{
+            for i in decks{
+                if cell.text == i.name{
+                    workingDeck = i
+                }
+            }
         }
         
         performSegue(withIdentifier: "toEditDeck", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEditDeck" {
+            let controller = segue.destination as! EditDeckViewController
+            controller.masterDeck = workingDeck
+        }
     }
     
     func setupDeckList() {

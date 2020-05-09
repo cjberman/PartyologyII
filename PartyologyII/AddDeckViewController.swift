@@ -1,7 +1,11 @@
 //
+
 //  AddDeckViewController.swift
+
 //  PartyologyII
+
 //
+
 //  Created by Charles Berman (student LM) on 4/2/20.
 //  Copyright © 2020 Charles Berman (student LM). All rights reserved.
 //
@@ -17,74 +21,143 @@ class AddDeckViewController: UIViewController {
     let devc = DeckEditViewController()
     
     //database variables
+    
     var ref: DatabaseReference?
+    
     var databaseHandle: DatabaseHandle?
     
+    
+    
     //ui variables
+    
     var deckName = UITextField()
+    
     var cardTerm = UITextField()
+    
     var cardDefinition = UITextField()
+    
     let addCard = UIButton()
+    
     let deckComplete = UIButton()
     
     
+    
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        
+        
+        
         ref = Database.database().reference()
         
+        
+        
         //UI Stuff
+        
         setUpDeckName()
+        
         setUpCardTerm()
+        
         setUpCardDefition()
+        
         setUpAddCard()
+        
         setUpDeckComplete()
-
+        
+        
+        
     }
-
+    
+    
+    
     //use to add a deck to the database (takes a deck parameter so make the deck first)
+    
     func addDeck(deck: Deck){
+        
         //updates database with the dictionary
+        
         ref?.child("Decks").child(deck.name).child("Cards")
         
+        
+        
         //creates a dictionary of term:definition
+        
         for i in 0..<deck.cards.count{ ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Term").setValue(deck.cards[i].term)
+            
             ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
+            
         }
         
+        
+        
     }
+    
+    
     
     func setUpDeckName(){
+        
         //adding to view
+        
         view.addSubview(deckName)
         
-        //setting up properties
-        deckName.placeholder = "Enter Deck Name"
-        deckName.textColor = UIColor.lightGray
-        deckName.font = UIFont(name: "CourierNewPSMT", size: 30)
-        deckName.adjustsFontSizeToFitWidth = true
-//        deckName.textFieldStyle(RoundedBorderTextFieldStyle())
-            
-        //constraints
-        deckName.translatesAutoresizingMaskIntoConstraints = false
-        deckName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
-        deckName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-    }
-    
-    func setUpCardTerm(){
-        //adding to view
-        view.addSubview(cardTerm)
+        
         
         //setting up properties
-        cardTerm.placeholder = "Term"
-        cardTerm.textColor = UIColor.lightGray
-        cardTerm.font = UIFont(name: "CourierNewPSMT", size: 30)
-        cardTerm.adjustsFontSizeToFitWidth = true
-//        cardTerm.textFieldStyle(RoundedBorderTextFieldStyle())
-            
+        
+        deckName.placeholder = "Enter Deck Name"
+        
+        deckName.textColor = UIColor.lightGray
+        
+        deckName.font = UIFont(name: "CourierNewPSMT", size: 30)
+        
+        deckName.adjustsFontSizeToFitWidth = true
+        
+        //        deckName.textFieldStyle(RoundedBorderTextFieldStyle())
+        
+        
+        
         //constraints
+        
+        deckName.translatesAutoresizingMaskIntoConstraints = false
+        
+        deckName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        
+        deckName.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        
+    }
+    
+    
+    
+    func setUpCardTerm(){
+        
+        //adding to view
+        
+        view.addSubview(cardTerm)
+        
+        
+        
+        //setting up properties
+        
+        cardTerm.placeholder = "Term"
+        
+        cardTerm.textColor = UIColor.lightGray
+        
+        cardTerm.font = UIFont(name: "CourierNewPSMT", size: 30)
+        
+        cardTerm.adjustsFontSizeToFitWidth = true
+        
+        //        cardTerm.textFieldStyle(RoundedBorderTextFieldStyle())
+        
+        
+        
+        //constraints
+        
         cardTerm.translatesAutoresizingMaskIntoConstraints = false
+        
         cardTerm.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30).isActive = true
+        
         cardTerm.topAnchor.constraint(equalTo: deckName.bottomAnchor, constant: 150).isActive = true
     }
     
@@ -123,6 +196,10 @@ class AddDeckViewController: UIViewController {
     }
     
     @objc func addCardSelector(){
+        
+        var newCard = FlashCard()
+
+        
         //setting term and definition
         if let termText = cardTerm.text, let termDefinition = cardDefinition.text{
             newCard.term = termText

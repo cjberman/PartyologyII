@@ -159,6 +159,7 @@ class DeckEditViewController: UIViewController, UITableViewDelegate,  UITableVie
         if segue.identifier == "toEditDeck" {
             let controller = segue.destination as! EditDeckViewController
             controller.masterDeck = workingDeck
+            controller.theOldName = workingDeck.name
         }
     }
     

@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iO5-bC-oMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4079" y="183"/>
+            <point key="canvasLocation" x="4416" y="8"/>
         </scene>
         <!--Fibbage View Controller-->
         <scene sceneID="6Wx-9s-4Sm">
@@ -173,18 +173,38 @@
                     <connections>
                         <segue destination="TOu-0B-Glu" kind="show" identifier="backToDeckEdit" id="UGU-5R-PFK"/>
                         <segue destination="Qbp-Zx-ab0" kind="show" identifier="toEditFlashcard" id="o7u-1d-EP9"/>
+                        <segue destination="EGw-am-etu" kind="show" identifier="toEditNewCard" id="TOf-ET-sPF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kzc-DC-DjU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="555"/>
         </scene>
+        <!--Edit New Flashcard View Controller-->
+        <scene sceneID="uwu-O7-Gog">
+            <objects>
+                <viewController id="EGw-am-etu" customClass="EditNewFlashcardViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6fk-gs-7Ce">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JDH-hh-bTw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e2v-JY-nAi"/>
+                    <connections>
+                        <segue destination="xB4-ZZ-bq6" kind="show" identifier="backToEditDeck2" id="2rR-Eu-hLJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVo-jb-eNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3670" y="992"/>
+        </scene>
         <!--Edit Flashcard View Controller-->
         <scene sceneID="lUa-Uo-HWI">
             <objects>
                 <viewController id="Qbp-Zx-ab0" customClass="EditFlashcardViewController" customModule="PartyologyII" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tyH-0y-LlH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="S1A-IH-U7M"/>
@@ -196,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4S-uc-7Nc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3810" y="907"/>
+            <point key="canvasLocation" x="3671" y="281"/>
         </scene>
         <!--Add Deck View Controller-->
         <scene sceneID="K6l-ss-Hj0">
@@ -219,7 +239,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LQo-f4-0gp"/>
+        <segue reference="2rR-Eu-hLJ"/>
         <segue reference="UGU-5R-PFK"/>
         <segue reference="NDn-O2-Mfk"/>
     </inferredMetricsTieBreakers>

@@ -106,6 +106,7 @@ class EditFlashcardViewController: UIViewController {
         if segue.identifier == "backToEditDeck" {
             let controller = segue.destination as! EditDeckViewController
             controller.masterDeck.cards = theDeckOfTruth.cards
+            controller.masterDeck = theDeckOfTruth
         }
     }
 

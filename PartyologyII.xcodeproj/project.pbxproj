@@ -29,6 +29,7 @@
 		F3DFC68123FECD200042F4A2 /* FibbageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */; };
 		F3DFC68323FECD2D0042F4A2 /* DeckChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */; };
 		F3DFC68523FECD3A0042F4A2 /* DeckEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */; };
+		F3E59CD7246712BB00CF9AFC /* EditNewFlashcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E59CD6246712BB00CF9AFC /* EditNewFlashcardViewController.swift */; };
 		F519756CC526FD18472D17C6 /* libPods-PartyologyII.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2929EC0CBF633DEE61B5058 /* libPods-PartyologyII.a */; };
 		FD17CD9A240D405F0027B0DE /* GameChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD17CD99240D405F0027B0DE /* GameChooseViewController.swift */; };
 		FD17CD9C24127D350027B0DE /* DeckChooseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD17CD9B24127D350027B0DE /* DeckChooseTableView.swift */; };
@@ -83,6 +84,7 @@
 		F3DFC68023FECD200042F4A2 /* FibbageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibbageViewController.swift; sourceTree = "<group>"; };
 		F3DFC68223FECD2D0042F4A2 /* DeckChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseViewController.swift; sourceTree = "<group>"; };
 		F3DFC68423FECD3A0042F4A2 /* DeckEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckEditViewController.swift; sourceTree = "<group>"; };
+		F3E59CD6246712BB00CF9AFC /* EditNewFlashcardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNewFlashcardViewController.swift; sourceTree = "<group>"; };
 		FD17CD99240D405F0027B0DE /* GameChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameChooseViewController.swift; sourceTree = "<group>"; };
 		FD17CD9B24127D350027B0DE /* DeckChooseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 				FD17CD9B24127D350027B0DE /* DeckChooseTableView.swift */,
 				F33892D92436CA6E00A1C14C /* EditDeckViewController.swift */,
 				F33C406C2466586F005456CB /* EditFlashcardViewController.swift */,
+				F3E59CD6246712BB00CF9AFC /* EditNewFlashcardViewController.swift */,
 			);
 			path = PartyologyII;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				F33892D82436B76700A1C14C /* AddDeckViewController.swift in Sources */,
 				FD17CD9A240D405F0027B0DE /* GameChooseViewController.swift in Sources */,
 				692C1C1E243501D400DB9520 /* ScoreScreen.swift in Sources */,
+				F3E59CD7246712BB00CF9AFC /* EditNewFlashcardViewController.swift in Sources */,
 				4DF454EA240551FC00146876 /* FlashCard.swift in Sources */,
 				690BD071240D3FB4003EF126 /* FibTableView.swift in Sources */,
 				F3DFC64923FEC2F00042F4A2 /* AppDelegate.swift in Sources */,

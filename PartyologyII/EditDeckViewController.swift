@@ -11,8 +11,10 @@ import FirebaseDatabase
 
 class EditDeckViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let editDeckName = UITextField()
+    let editDeckName = UILabel()
     var masterDeck = Deck()
+//    var officialDeck = Deck()
+    var theOldName = ""
     let update = UIButton()
     let addCard = UIButton()
     var ref: DatabaseReference?
@@ -27,25 +29,21 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
            return tv
        }()
     
-//    let tableview: UITableView = {
-//        let tv = UITableView()
-//        tv.backgroundColor = UIColor.black
-//        tv.separatorColor = UIColor.white
-//        tv.translatesAutoresizingMaskIntoConstraints = false
-//        return tv
-//    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        officialDeck = masterDeck
+        
         ref = Database.database().reference()
+        
+        print(theOldName)
         
         setUpDeckName()
         setupDeckLists()
         setUpButton()
         setUpButtonFlashcard()
-
+    
     }
     
     func setUpDeckName(){
@@ -53,8 +51,8 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
         view.addSubview(editDeckName)
             
             //setting up properties
-        editDeckName.placeholder = masterDeck.name
-        editDeckName.textColor = UIColor.lightGray
+        editDeckName.text = masterDeck.name
+        editDeckName.textColor = UIColor.black
         editDeckName.font = UIFont(name: "CourierNewPSMT", size: 30)
         editDeckName.adjustsFontSizeToFitWidth = true
     //        deckName.textFieldStyle(RoundedBorderTextFieldStyle())
@@ -73,13 +71,13 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
         addCard.setTitle("Add Card", for: .normal)
         addCard.setTitleColor(UIColor.lightGray, for: .normal)
         addCard.backgroundColor = UIColor.purple
-        addCard.addTarget(self, action: #selector(editDeckSegue), for: .touchUpInside)
+        addCard.addTarget(self, action: #selector(toEditNewCard), for: .touchUpInside)
         addCard.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         addCard.translatesAutoresizingMaskIntoConstraints = false
         addCard.centerXAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
-        addCard.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: -30).isActive = true
+        addCard.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: 100).isActive = true
         }
     
     func setUpButton(){
@@ -90,27 +88,23 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
         update.setTitle("Update", for: .normal)
         update.setTitleColor(UIColor.lightGray, for: .normal)
         update.backgroundColor = UIColor.blue
-        update.addTarget(self, action: #selector(toEditDeckSegueButDifferent), for: .touchUpInside)
+        update.addTarget(self, action: #selector(updateDeck), for: .touchUpInside)
         update.titleLabel?.font = UIFont(name: "CourierNewPSMT", size: 30)
         
         //constraints
         update.translatesAutoresizingMaskIntoConstraints = false
         update.centerXAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
-        update.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: -30).isActive = true
+        update.centerYAnchor.constraint(equalTo: deckList.bottomAnchor, constant: 100).isActive = true
         }
         
-    @objc func toEditDeckSegueButDifferent(){
-        self.performSegue(withIdentifier: "toEditFlashcard", sender: self)
-        
+    @objc func toEditNewCard(){
+        self.performSegue(withIdentifier: "toEditNewCard", sender: self)
     }
     
-    @objc func editDeckSegue(){
+    @objc func updateDeck(){
+       addDeck(deck: masterDeck)
+        
         self.performSegue(withIdentifier: "backToDeckEdit", sender: self)
-        if let newName = editDeckName.text{
-            ref?.child("Decks").child(masterDeck.name).removeValue()
-            masterDeck.name = newName
-            addDeck(deck: masterDeck)
-        }
     }
     
     
@@ -172,7 +166,12 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
             controller.masterFlashcard = flashcardChosen
             controller.theDeckOfTruth = masterDeck
         }
+        else  if segue.identifier == "toEditNewCard" {
+            let controller = segue.destination as! EditNewFlashcardViewController
+            controller.theOneDeckToRuleThemAll = masterDeck
+        }
     }
+
     
     
     
@@ -180,13 +179,15 @@ class EditDeckViewController: UIViewController, UITableViewDelegate, UITableView
     
     //use to add a deck to the database (takes a deck parameter so make the deck first)
     func addDeck(deck: Deck){
-        //updates database with the dictionary
-        ref?.child("Decks").child(deck.name).child("Cards")
-        
         //creates a dictionary of term:definition
         for i in 0..<deck.cards.count{ ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Term").setValue(deck.cards[i].term)
-            ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
+            
+            print("No error for giving term")
+        ref?.child("Decks").child(deck.name).child("Cards").child("\(i)").child("Definition").setValue(deck.cards[i].definition)
+            
+            print("No error for giving definition")
         }
+
         
     }
 }
